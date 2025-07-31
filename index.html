@@ -2,93 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official website of the Embassy of Nigeria, Prague." />
+  <meta name="description" content="Official website of the Embassy of Nigeria in Prague." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Embassy of Nigeria, Prague</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
-    body { margin: 0; font-family: 'Roboto', sans-serif; }
-    header { background-color: #006400; padding: 10px 0; }
-    nav { display: flex; justify-content: center; gap: 20px; }
-    nav a { color: white; text-decoration: none; font-weight: 500; }
-    .slider { position: relative; overflow: hidden; height: 400px; }
-    .slider img { width: 100%; height: 400px; object-fit: cover; animation: fade 12s infinite; }
-    @keyframes fade {
-      0%, 100% { opacity: 1; }
-      33% { opacity: 0; }
-      66% { opacity: 1; }
+    /* Additional inline style for slider caption */
+    .slider-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      color: white;
+      background: rgba(0, 100, 0, 0.6);
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      max-width: 80%;
     }
-    .hero-text { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); color: white; text-shadow: 2px 2px 8px black; text-align: center; font-size: 2rem; }
-    .section { padding: 40px 20px; max-width: 1100px; margin: auto; }
-    .section h2 { color: #006400; border-left: 5px solid #006400; padding-left: 10px; }
-    .services-grid { display: flex; flex-wrap: wrap; gap: 20px; }
-    .service-card { flex: 1 1 200px; background: #f4f4f4; padding: 20px; border-left: 5px solid #006400; }
-    footer { background: #003300; color: white; text-align: center; padding: 20px 10px; margin-top: 40px; }
-    iframe { border: none; width: 100%; height: 300px; }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#ambassador">Ambassador</a>
-      <a href="#services">Services</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="ambassador.html">Ambassador</a>
+      <a href="visa.html">Visa</a>
+      <a href="consular.html">Consular</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <div class="slider">
-    <img src="slider1.jpg" alt="Embassy building" />
-    <!-- You can add JavaScript later to make multiple images rotate -->
-    <div class="hero-text">Welcome to the Embassy of Nigeria, Prague</div>
+    <div class="slide active" style="background-image: url('images/slider1.jpg');">
+      <div class="slider-caption">Welcome to the Embassy of Nigeria, Prague</div>
+    </div>
+    <div class="slide" style="background-image: url('images/slider2.jpg');">
+      <div class="slider-caption">Promoting Nigerian-Czech Relations</div>
+    </div>
+    <div class="slide" style="background-image: url('images/slider3.jpg');">
+      <div class="slider-caption">Consular Services & Visa Information</div>
+    </div>
   </div>
 
-  <section id="about" class="section">
-    <h2>About the Embassy</h2>
-    <p>The Embassy of Nigeria in Prague represents the interests of Nigeria and Nigerians in the Czech Republic. We promote bilateral relations, provide consular services, and support Nigerian citizens and businesses.</p>
-  </section>
+  <section class="section">
+    <h1>About the Embassy</h1>
+    <p>The Embassy of the Federal Republic of Nigeria in Prague is the official diplomatic mission representing Nigeria in the Czech Republic. The Embassy works to strengthen bilateral relations between Nigeria and the Czech Republic, promote economic and cultural ties, and provide services to Nigerian citizens and residents.</p>
 
-  <section id="ambassador" class="section">
-    <h2>Ambassador's Message</h2>
-    <p>Welcome to the official website of the Nigerian Embassy in Prague. This platform serves to inform, connect, and support the Nigerian community and those interested in our vibrant country. — <em>(Ambassador’s name here)</em></p>
-  </section>
+    <h2>Our Mission</h2>
+    <p>To protect the interests of Nigeria and Nigerians in the Czech Republic while promoting cooperation in trade, education, technology, and cultural exchange.</p>
 
-  <section id="services" class="section">
-    <h2>Quick Links</h2>
-    <div class="services-grid">
-      <div class="service-card">Visa Application</div>
-      <div class="service-card">Passport Renewal</div>
-      <div class="service-card">Consular Services</div>
-      <div class="service-card">Nigerians in Diaspora</div>
-      <div class="service-card">Trade & Investment</div>
-      <div class="service-card">Legalization & Authentication</div>
-    </div>
-  </section>
+    <h2>Core Functions</h2>
+    <ul>
+      <li>Issuance and renewal of Nigerian passports</li>
+      <li>Visa services for travelers to Nigeria</li>
+      <li>Consular services including authentication, notarial services, and welfare support</li>
+      <li>Facilitating diplomatic and bilateral engagements</li>
+      <li>Supporting Nigerian citizens and businesses in the Czech Republic</li>
+    </ul>
 
-  <section id="news" class="section">
-    <h2>Latest News & Events</h2>
-    <p>No updates yet. Please check back soon.</p>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <p>
-      Embassy of Nigeria<br>
-      Address: [Insert Address Here]<br>
-      Phone: +420 XXX XXX XXX<br>
-      Email: info@nigeriaembassy.cz
-    </p>
-    <iframe src="https://maps.google.com/maps?q=prague%20nigerian%20embassy&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    <h2>Working Hours</h2>
+    <p>Monday – Friday: 9:00 AM to 4:00 PM<br>
+    Closed on Czech and Nigerian public holidays.</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Embassy of Nigeria, Prague. All rights reserved.</p>
-    <p>Follow us: Facebook | Twitter | Instagram</p>
   </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showNextSlide() {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 4000);
+  </script>
 </body>
 </html>
