@@ -3,55 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Visa requirements and information for traveling to Nigeria from the Czech Republic." />
-  <title>Visa Information - Embassy of Nigeria, Prague</title>
+  <title>Visa - Embassy of Nigeria, Prague</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="ambassador.html">Ambassador</a>
-      <a href="visa.html">Visa</a>
-      <a href="consular.html">Consular</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
+  <header class="site-header">
+    <div class="logo">Embassy of Nigeria, Prague</div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="visa.html" class="active">Visa</a></li>
+        <li><a href="consular.html">Consular</a></li>
+        <li><a href="trade.html">Trade</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="section">
-    <h1>Visa Information</h1>
-    <p>The Embassy of Nigeria in Prague processes visa applications for individuals wishing to travel to Nigeria for business, tourism, education, or diplomatic purposes.</p>
+  <main>
+    <section class="welcome">
+      <h1>Visa Information</h1>
+      <p>
+        The Embassy of Nigeria in Prague processes several types of visas for travel to Nigeria. Please read the requirements and instructions carefully before submitting your application.
+      </p>
+    </section>
 
-    <h2>Types of Visas</h2>
-    <ul>
-      <li><strong>Tourist Visa:</strong> For leisure visits.</li>
-      <li><strong>Business Visa:</strong> For business meetings and trade activities.</li>
-      <li><strong>Temporary Work Permit (TWP):</strong> For short-term technical or professional work.</li>
-      <li><strong>Subject to Regularization (STR):</strong> For long-term employment or residence.</li>
-      <li><strong>Diplomatic/Official Visa:</strong> For diplomats and government officials.</li>
-    </ul>
+    <section class="highlights">
+      <div class="highlight">
+        <h2>Tourist Visa</h2>
+        <p>For individuals visiting Nigeria for tourism or leisure. Requires a valid passport, hotel reservation, return ticket, and application form.</p>
+      </div>
+      <div class="highlight">
+        <h2>Business Visa</h2>
+        <p>For individuals traveling for business-related purposes. Requires an invitation letter from a Nigerian company and proof of business activities.</p>
+      </div>
+      <div class="highlight">
+        <h2>Temporary Work Permit (TWP)</h2>
+        <p>Issued for short-term employment or contract work. Requires pre-approval from the Nigeria Immigration Service (NIS).</p>
+      </div>
+    </section>
 
-    <h2>Requirements</h2>
-    <ul>
-      <li>Completed visa application form</li>
-      <li>Valid passport (minimum 6 months validity)</li>
-      <li>Two recent passport photographs</li>
-      <li>Proof of travel (flight booking)</li>
-      <li>Invitation letter or hotel reservation (as applicable)</li>
-      <li>Visa payment receipt</li>
-    </ul>
+    <section class="welcome">
+      <h2>Visa Application Process</h2>
+      <ol>
+        <li>Fill out the visa application online at <a href="https://portal.immigration.gov.ng">https://portal.immigration.gov.ng</a></li>
+        <li>Print the completed form and payment receipt</li>
+        <li>Submit your documents in person at the Embassy</li>
+        <li>Track your application status online or by contacting the visa section</li>
+      </ol>
+    </section>
+  </main>
 
-    <h2>How to Apply</h2>
-    <p>Applications must be submitted through the Nigeria Immigration Service portal:<br>
-    <a href="https://portal.immigration.gov.ng" target="_blank">https://portal.immigration.gov.ng</a></p>
-
-    <p>After online submission and payment, print the visa application and visit the Embassy with your documents.</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Embassy of Nigeria, Prague. All rights reserved.</p>
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Embassy of Nigeria, Prague. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
