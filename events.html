@@ -3,43 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Latest news and events from the Embassy of Nigeria in Prague." />
-  <title>News & Events - Embassy of Nigeria, Prague</title>
+  <title>Events - Embassy of Nigeria, Prague</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="ambassador.html">Ambassador</a>
-      <a href="visa.html">Visa</a>
-      <a href="consular.html">Consular</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
+  <header class="site-header">
+    <div class="logo">Embassy of Nigeria, Prague</div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="visa.html">Visa</a></li>
+        <li><a href="consular.html">Consular</a></li>
+        <li><a href="trade.html">Trade</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="section">
-    <h1>Latest News & Events</h1>
+  <main>
+    <section class="welcome">
+      <h1>Upcoming Events</h1>
+      <p>Stay updated with the latest events hosted or supported by the Embassy of Nigeria in Prague.</p>
+    </section>
 
-    <div class="news-item">
-      <div class="date">30 July 2025</div>
-      <h3>National Day Celebration – Prague 2025</h3>
-      <p>The Embassy hosted a successful Independence Day celebration with dignitaries from the Czech government and Nigerian community members in attendance.</p>
-    </div>
+    <section class="highlights">
+      <div class="highlight">
+        <h2>Independence Day Celebration</h2>
+        <p><strong>Date:</strong> October 1, 2025</p>
+        <p>Join us for the annual Nigerian Independence Day celebration, featuring cultural performances, speeches, and a reception.</p>
+      </div>
+      <div class="highlight">
+        <h2>Trade and Investment Forum</h2>
+        <p><strong>Date:</strong> November 15, 2025</p>
+        <p>A business forum aimed at strengthening trade ties between Nigerian and Czech companies.</p>
+      </div>
+      <div class="highlight">
+        <h2>Consular Outreach Day</h2>
+        <p><strong>Date:</strong> December 5, 2025</p>
+        <p>Special consular services provided off-site to assist Nigerians in the Czech Republic with passport renewals and documentation.</p>
+      </div>
+    </section>
+  </main>
 
-    <div class="news-item">
-      <div class="date">10 June 2025</div>
-      <h3>Trade Delegation Visit to Prague</h3>
-      <p>A Nigerian trade mission visited Prague to explore economic partnerships with Czech investors in agriculture and tech sectors.</p>
-    </div>
-
-    <p>More updates coming soon...</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Embassy of Nigeria, Prague. All rights reserved.</p>
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Embassy of Nigeria, Prague. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
