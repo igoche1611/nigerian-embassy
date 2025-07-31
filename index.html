@@ -3,72 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official website of the Embassy of Nigeria in Prague. Get the latest information about consular services, visa, and diplomatic news." />
+  <meta name="description" content="Official website of the Embassy of Nigeria, Prague." />
   <title>Embassy of Nigeria, Prague</title>
-  <link rel="stylesheet" href="Css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="logo">Embassy of Nigeria, Prague</div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="ambassador.html">Ambassador</a></li>
-        <li><a href="visa.html">Visa</a></li>
-        <li><a href="consular.html">Consular</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#ambassador">Ambassador</a>
+      <a href="#services">Services</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero-slider">
-    <div class="slide">
-      <img src="images/slider1.jpg" alt="Embassy Building" />
-      <div class="caption">Welcome to the Embassy of Nigeria, Prague</div>
-    </div>
-    <div class="slide">
-      <img src="images/slider2.jpg" alt="Nigeria and Czech Republic Flags" />
-      <div class="caption">Promoting Bilateral Relations</div>
-    </div>
-    <div class="slide">
-      <img src="images/slider3.jpg" alt="Consular Services" />
-      <div class="caption">Consular and Visa Services Available</div>
+  <div class="slider">
+    <img src="slider1.jpg" alt="Embassy building" />
+    <!-- You can add JavaScript later to make multiple images rotate -->
+    <div class="hero-text">Welcome to the Embassy of Nigeria, Prague</div>
+  </div>
+
+  <section id="about" class="section">
+    <h2>About the Embassy</h2>
+    <p>The Embassy of Nigeria in Prague represents the interests of Nigeria and Nigerians in the Czech Republic. We promote bilateral relations, provide consular services, and support Nigerian citizens and businesses.</p>
+  </section>
+
+  <section id="ambassador" class="section">
+    <h2>Ambassador's Message</h2>
+    <p>Welcome to the official website of the Nigerian Embassy in Prague. This platform serves to inform, connect, and support the Nigerian community and those interested in our vibrant country. — <em>(Ambassador’s name here)</em></p>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Quick Links</h2>
+    <div class="services-grid">
+      <div class="service-card">Visa Application</div>
+      <div class="service-card">Passport Renewal</div>
+      <div class="service-card">Consular Services</div>
+      <div class="service-card">Nigerians in Diaspora</div>
+      <div class="service-card">Trade & Investment</div>
+      <div class="service-card">Legalization & Authentication</div>
     </div>
   </section>
 
-  <main>
-    <section class="welcome">
-      <h1>Welcome</h1>
-      <p>This is the official website of the Embassy of Nigeria in Prague. We serve the Nigerian community in the Czech Republic and foster diplomatic and economic relations between Nigeria and the Czech Republic.</p>
-    </section>
+  <section id="news" class="section">
+    <h2>Latest News & Events</h2>
+    <p>No updates yet. Please check back soon.</p>
+  </section>
 
-    <section class="highlights">
-      <div class="highlight">
-        <h2>Visa Information</h2>
-        <p>Find requirements, types, and application processes for Nigerian visas.</p>
-        <a href="visa.html" class="btn">Learn More</a>
-      </div>
-      <div class="highlight">
-        <h2>Meet the Ambassador</h2>
-        <p>Get to know the current Nigerian Ambassador to the Czech Republic.</p>
-        <a href="ambassador.html" class="btn">Read More</a>
-      </div>
-      <div class="highlight">
-        <h2>Embassy Services</h2>
-        <p>Discover the range of services we offer to citizens and visitors.</p>
-        <a href="consular.html" class="btn">View Services</a>
-      </div>
-    </section>
-  </main>
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>
+      Embassy of Nigeria<br>
+      Address: [Insert Address Here]<br>
+      Phone: +420 XXX XXX XXX<br>
+      Email: info@nigeriaembassy.cz
+    </p>
+    <iframe src="https://maps.google.com/maps?q=prague%20nigerian%20embassy&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+  </section>
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Embassy of Nigeria, Prague. All rights reserved.</p>
+  <footer>
+    <p>&copy; 2025 Embassy of Nigeria, Prague. All rights reserved.</p>
+    <p>Follow us: Facebook | Twitter | Instagram</p>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
