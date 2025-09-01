@@ -3,46 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embassy of Nigeria, Prague</title>
+    <title>Embassy of Nigeria, Prague | Official Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1600x800/008000/FFFFFF?text=Nigerian+Flag+Waving');
+        .nigeria-green {
+            color: #008751;
+        }
+        .nigeria-green-bg {
+            background-color: #008751;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #008751;
+            border-radius: 2px;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
-        .nigeria-green { color: #008751; }
-        .nigeria-green-bg { background-color: #008751; }
-        .nigeria-green-bg:hover { background-color: #00663d; }
-        .section-title {
-            border-left: 4px solid #008751;
-            padding-left: 1rem;
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        /* Dropdown styles */
-        .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 220px;
+            background-color: white;
+            min-width: 240px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 0.5rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            animation: fadeIn 0.3s ease-out;
+            padding: 0.5rem 0;
+            border-top: 3px solid #008751;
         }
         .dropdown-content a {
             color: black;
@@ -51,42 +61,39 @@
             display: block;
             font-size: 0.9rem;
         }
-        .dropdown-content a:hover { background-color: #f1f1f1; color: #008751; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown .fa-chevron-down { transition: transform 0.3s; }
-        .dropdown:hover .fa-chevron-down { transform: rotate(180deg); }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
         }
-        
-        /* Mobile menu accordion */
-        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .mobile-accordion-content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100">
 
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="flex items-center space-x-2">
-                <img src="https://placehold.co/50x50/FFFFFF/008000?text=NIG" alt="Nigeria Coat of Arms" class="h-12 w-12">
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Coat_of_arms_of_Nigeria.svg" alt="Nigerian Coat of Arms" class="h-12">
                 <div>
-                    <h1 class="text-xl font-bold nigeria-green">Embassy of Nigeria</h1>
-                    <p class="text-sm text-gray-600">Prague, Czech Republic</p>
+                    <h1 class="text-lg font-bold nigeria-green">Embassy of Nigeria</h1>
+                    <p class="text-xs text-gray-600">Prague, Czech Republic</p>
                 </div>
             </a>
-            <div class="hidden md:flex items-center space-x-6">
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold">
                 <a href="#home" class="text-gray-600 hover:nigeria-green transition duration-300">Home</a>
                 <!-- About Us Dropdown -->
                 <div class="dropdown">
                     <button class="text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
                     <div class="dropdown-content">
-                        <a href="#about-mission">Head of Mission</a>
-                        <a href="#about-team">Our Team</a>
-                        <a href="#about-history">Our History</a>
-                        <a href="#about-relations">Diplomatic Relations</a>
+                        <a href="#ambassador-welcome">Ambassador's Welcome</a>
+                        <a href="#mission-history">History of the Mission</a>
+                        <a href="#our-team">Our Team</a>
                     </div>
                 </div>
                 <!-- Nigeria Dropdown -->
@@ -117,30 +124,35 @@
                 <div class="dropdown">
                     <button class="text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
                     <div class="dropdown-content">
-                        <a href="#press-news">Latest News</a>
-                        <a href="#press-gallery">Photo Galleries</a>
+                        <a href="#news">Latest News</a>
+                        <a href="#gallery">Photo Gallery</a>
                     </div>
                 </div>
                 <a href="#contact" class="text-gray-600 hover:nigeria-green transition duration-300">Contact Us</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
-                <i class="fas fa-bars fa-2x"></i>
-            </button>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </nav>
+
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#home" class="block py-2 text-gray-600 hover:nigeria-green">Home</a>
-            <!-- Mobile Accordions -->
+        <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+             <div>
+                <a href="#home" class="block py-2 text-gray-600 font-semibold">Home</a>
+            </div>
             <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">About Us <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
-                    <a href="#about-mission" class="block py-2 text-gray-600">Head of Mission</a>
-                    <a href="#about-team" class="block py-2 text-gray-600">Our Team</a>
-                    <a href="#about-history" class="block py-2 text-gray-600">Our History</a>
-                    <a href="#about-relations" class="block py-2 text-gray-600">Diplomatic Relations</a>
+                    <a href="#ambassador-welcome" class="block py-2 text-gray-600">Ambassador's Welcome</a>
+                    <a href="#mission-history" class="block py-2 text-gray-600">History of the Mission</a>
+                    <a href="#our-team" class="block py-2 text-gray-600">Our Team</a>
                 </div>
             </div>
-             <div>
+            <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Nigeria <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
                     <a href="#nigeria-history" class="block py-2 text-gray-600">History & People</a>
@@ -163,144 +175,167 @@
              <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Press Center <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
-                    <a href="#press-news" class="block py-2 text-gray-600">Latest News</a>
-                    <a href="#press-gallery" class="block py-2 text-gray-600">Photo Galleries</a>
+                    <a href="#news" class="block py-2 text-gray-600">Latest News</a>
+                    <a href="#gallery" class="block py-2 text-gray-600">Photo Gallery</a>
                 </div>
             </div>
-            <a href="#contact" class="block py-2 text-gray-600 hover:nigeria-green">Contact Us</a>
+            <div>
+                 <a href="#contact" class="block py-2 text-gray-600 font-semibold">Contact Us</a>
+            </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero-bg text-white">
-            <div class="container mx-auto px-6 py-32 text-center">
-                <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Welcome to the Embassy of the Federal Republic of Nigeria, Prague</h2>
-                <p class="text-lg md:text-xl mb-8">Strengthening diplomatic ties and serving Nigerian citizens in the Czech Republic.</p>
-                <a href="#services" class="nigeria-green-bg text-white font-bold py-3 px-8 rounded-full text-lg hover:shadow-lg transition duration-300">Explore Our Services</a>
+        <section id="home" class="hero-section h-screen flex items-center justify-center text-white text-center pt-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">Embassy of the Federal Republic of Nigeria</h2>
+                <p class="text-lg md:text-2xl font-light mb-8">Strengthening diplomatic ties and serving our community in the Czech Republic.</p>
+                <a href="#services" class="bg-white nigeria-green font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Explore Our Services</a>
             </div>
         </section>
-        
-        <!-- About Us Sections -->
-        <section id="about-mission" class="py-20">
-             <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2">
-                         <img src="https://placehold.co/600x400/333333/FFFFFF?text=Ambassador+Photo" alt="Nigerian Ambassador to Czech Republic" class="rounded-lg shadow-2xl w-full">
+
+        <!-- Ambassador's Welcome Section -->
+        <section id="ambassador-welcome" class="py-20 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
+                        <img src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?q=80&w=800&auto=format&fit=crop" alt="Ambassador Photo" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]">
                     </div>
-                    <div class="lg:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold section-title mb-6">Message from the Head of Mission</h2>
-                        <p class="text-gray-600 mb-4 text-lg">"On behalf of the President of the Federal Republic of Nigeria, I extend my warmest greetings to all Nigerians in the Czech Republic and our Czech friends. Our mission is dedicated to fostering stronger bilateral relations and serving our community with excellence and integrity."</p>
-                         <p class="font-bold text-gray-800">H.E. [Ambassador's Name]</p>
-                         <p class="text-sm nigeria-green">Ambassador of Nigeria to the Czech Republic</p>
+                    <div class="w-full md:w-2/3 md:pl-12">
+                         <h2 class="text-3xl md:text-4xl font-bold section-title inline-block mb-6">A Message from the Ambassador</h2>
+                         <p class="text-gray-600 mb-4">On behalf of the President of the Federal Republic of Nigeria, His Excellency Bola Ahmed Tinubu, and the entire staff of the Embassy, I extend a warm welcome to the official website of the Embassy of Nigeria in Prague.</p>
+                         <p class="text-gray-600 mb-4">This website is designed to be a comprehensive resource for Nigerian citizens, our Czech friends, and international visitors. Whether you are seeking consular services, exploring business opportunities in Nigeria, or learning more about our rich culture, we are here to assist you.</p>
+                         <p class="text-gray-600">We are committed to fostering the excellent bilateral relations between Nigeria and the Czech Republic and to providing efficient and courteous service to all. Thank you for visiting.</p>
+                         <p class="font-bold mt-6 nigeria-green">H.E. Dr. Maureen Tamuno</p>
+                         <p class="text-sm text-gray-500">Ambassador of Nigeria to the Czech Republic</p>
                     </div>
                 </div>
-             </div>
+            </div>
         </section>
-        
+
+
         <!-- Consular Services Section -->
-        <section id="services" class="py-20 bg-white">
+        <section id="services" class="py-20 bg-gray-50 scroll-mt-16">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Consular & Visa Services</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We provide a wide range of consular services to Nigerian citizens and foreign nationals.</p>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We provide a wide range of consular services. Please review the requirements for each service carefully before your visit.</p>
                 </div>
 
                 <!-- Sub-section for Visas -->
                 <div id="services-visas" class="mb-16 scroll-mt-20">
                     <h3 class="text-2xl font-bold mb-8 text-center nigeria-green"><i class="fas fa-file-alt mr-2"></i>Visa Services</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="service-card bg-gray-50 p-6 rounded-lg text-center shadow"><h4 class="font-bold text-lg">Business Visa</h4></div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg text-center shadow"><h4 class="font-bold text-lg">Tourist Visa</h4></div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg text-center shadow"><h4 class="font-bold text-lg">Official Visa</h4></div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg text-center shadow"><h4 class="font-bold text-lg">Transit Visa</h4></div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg text-center shadow"><h4 class="font-bold text-lg">TWP (Subject To Regularization)</h4></div>
+                    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 text-center">We process applications for various categories of visas to Nigeria. All applications must be submitted through the Nigeria Immigration Service portal. Please note that the Embassy is not responsible for payments or processing on the portal.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 text-center">
+                            <span class="font-semibold">Business Visa</span>
+                            <span class="font-semibold">Tourist Visa</span>
+                            <span class="font-semibold">Official Visa</span>
+                            <span class="font-semibold">Transit Visa</span>
+                            <span class="font-semibold">TWP</span>
+                        </div>
+                         <div class="text-center mt-6">
+                            <a href="#" class="nigeria-green-bg text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition duration-300">Apply for Visa Online</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="services-etc" class="mb-16 scroll-mt-20">
                      <h3 class="text-2xl font-bold mb-8 text-center nigeria-green"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Certificate</h3>
-                     <div class="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg shadow-md">
-                        <p class="text-gray-600 text-center">An Emergency Travel Certificate (ETC) is issued for urgent, one-way travel to Nigeria only. It is typically valid for a single journey and is intended for Nigerians who have lost their passport or do not have a valid passport and need to travel urgently.</p>
+                     <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 text-center">An Emergency Travel Certificate (ETC) is issued for urgent, one-way travel to Nigeria for citizens who have lost their passport or do not have a valid one. Applicants must provide proof of Nigerian citizenship, such as a birth certificate or a previous passport copy.</p>
+                        <div class="text-center mt-6">
+                            <a href="#" class="nigeria-green-bg text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition duration-300">Download ETC Form</a>
+                        </div>
                      </div>
                 </div>
 
                  <!-- Sub-section for Documents -->
                 <div id="services-documents" class="scroll-mt-20">
                     <h3 class="text-2xl font-bold mb-8 text-center nigeria-green"><i class="fas fa-stamp mr-2"></i>Document Legalisation</h3>
-                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <div id="services-documents-age" class="service-card bg-gray-50 p-6 rounded-lg text-center shadow scroll-mt-20"><h4 class="font-bold text-lg">Age Declaration</h4></div>
-                        <div id="services-documents-id" class="service-card bg-gray-50 p-6 rounded-lg text-center shadow scroll-mt-20"><h4 class="font-bold text-lg">Citizens Identification</h4></div>
-                        <div id="services-documents-profession" class="service-card bg-gray-50 p-6 rounded-lg text-center shadow scroll-mt-20"><h4 class="font-bold text-lg">Change of Profession</h4></div>
-                        <div id="services-documents-burial" class="service-card bg-gray-50 p-6 rounded-lg text-center shadow scroll-mt-20"><h4 class="font-bold text-lg">Burial Transit Permit</h4></div>
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <div id="services-documents-age" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                            <h4 class="font-bold text-lg text-center mb-2">Age Declaration</h4>
+                            <p class="text-sm text-gray-600">Legalisation of statutory declaration of age documents from a Nigerian court.</p>
+                        </div>
+                        <div id="services-documents-id" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                            <h4 class="font-bold text-lg text-center mb-2">Citizens Identification</h4>
+                             <p class="text-sm text-gray-600">Authentication of documents for Nigerian citizens residing in the Czech Republic.</p>
+                        </div>
+                        <div id="services-documents-profession" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                             <h4 class="font-bold text-lg text-center mb-2">Change of Profession</h4>
+                             <p class="text-sm text-gray-600">Legalisation of official documents related to a change of profession.</p>
+                        </div>
+                        <div id="services-documents-burial" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                             <h4 class="font-bold text-lg text-center mb-2">Burial Transit Permit</h4>
+                             <p class="text-sm text-gray-600">Issuance of permits for the transportation of human remains to Nigeria for burial.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Nigeria Section -->
-        <section id="nigeria-history" class="py-20">
+        <section id="nigeria-history" class="py-20 bg-white scroll-mt-16">
             <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">About Nigeria</h2>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Discover Nigeria</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">A vibrant nation with a rich history, diverse culture, and boundless opportunities.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                     <div class="text-center p-4">
-                        <img src="https://placehold.co/600x400/008000/FFFFFF?text=Nigerian+History" class="w-full h-40 object-cover rounded-lg shadow-md mb-4" alt="History">
-                        <h3 class="text-xl font-bold">History & People</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 nigeria-green">History & People</h3>
+                        <p class="text-gray-600 mb-4">Nigeria, the "Giant of Africa," is a country of over 200 million people with more than 250 ethnic groups. Its history is rich with powerful kingdoms and empires. It gained independence from the United Kingdom in 1960 and has since become a federal republic, playing a significant role in African and global affairs.</p>
                     </div>
-                    <div class="text-center p-4">
-                        <img src="https://placehold.co/600x400/008000/FFFFFF?text=Nigerian+Culture" class="w-full h-40 object-cover rounded-lg shadow-md mb-4" alt="Culture">
-                        <h3 class="text-xl font-bold">Culture & Tourism</h3>
+                    <div>
+                         <img src="https://images.unsplash.com/photo-1568593983993-3b3a3c9a01f6?q=80&w=1200&auto=format&fit=crop" alt="Zuma Rock, Nigeria" class="rounded-lg shadow-lg">
                     </div>
-                    <div class="text-center p-4">
-                        <img src="https://placehold.co/600x400/008000/FFFFFF?text=Nigerian+Economy" class="w-full h-40 object-cover rounded-lg shadow-md mb-4" alt="Economy">
-                        <h3 class="text-xl font-bold">Economy & Investment</h3>
+                </div>
+                 <div id="nigeria-culture" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16 scroll-mt-16">
+                     <div class="order-2 md:order-1">
+                         <img src="https://images.unsplash.com/photo-1605057032236-84803504f7a2?q=80&w=1200&auto=format&fit=crop" alt="Nigerian Jollof Rice" class="rounded-lg shadow-lg">
                     </div>
-                    <div class="text-center p-4">
-                        <img src="https://placehold.co/600x400/008000/FFFFFF?text=Nigerian+Symbols" class="w-full h-40 object-cover rounded-lg shadow-md mb-4" alt="Symbols">
-                        <h3 class="text-xl font-bold">National Symbols</h3>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-2xl font-bold mb-4 nigeria-green">Culture, Arts & Tourism</h3>
+                        <p class="text-gray-600 mb-4">Nigerian culture is expressed through its music, dance, literature, and film. The Nigerian film industry, known as "Nollywood," is the second-largest in the world. From the sandy beaches of Lagos to the ancient city of Kano and the plateaus of Jos, Nigeria offers a wealth of tourist attractions.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Press Center Section -->
-        <section id="press-news" class="py-20 bg-white">
+        
+        <!-- News Section -->
+        <section id="news" class="py-20 bg-gray-50 scroll-mt-16">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Press Center</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Stay updated with the latest news and events from the Embassy.</p>
+                     <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Latest News & Events</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- News Card 1 -->
-                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/008000/FFFFFF?text=Cultural+Event" class="w-full h-48 object-cover" alt="News Image">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Community event" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <span class="text-sm text-gray-500">August 25, 2025</span>
-                            <h3 class="text-xl font-bold my-2">Nigerian Cultural Day in Prague</h3>
-                            <p class="text-gray-600 mb-4">A vibrant celebration of Nigerian music, food, and art took place in Prague.</p>
-                            <a href="#" class="font-semibold nigeria-green hover:underline">Read More &rarr;</a>
+                            <span class="text-xs text-gray-500">September 1, 2025</span>
+                            <h4 class="font-bold text-lg my-2">Embassy Celebrates Nigerian Independence Day</h4>
+                            <p class="text-gray-600 text-sm mb-4">The Embassy will host a flag-raising ceremony and cultural reception to mark Nigeria's 65th Independence Day anniversary on October 1st.</p>
+                            <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
-                    <!-- News Card 2 -->
-                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/333333/FFFFFF?text=Business+Forum" class="w-full h-48 object-cover" alt="News Image">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1200&auto=format&fit=crop" alt="Online booking system" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <span class="text-sm text-gray-500">August 15, 2025</span>
-                            <h3 class="text-xl font-bold my-2">Nigeria-Czech Business Forum</h3>
-                            <p class="text-gray-600 mb-4">The embassy hosted a successful forum to promote bilateral trade.</p>
-                            <a href="#" class="font-semibold nigeria-green hover:underline">Read More &rarr;</a>
+                             <span class="text-xs text-gray-500">August 25, 2025</span>
+                            <h4 class="font-bold text-lg my-2">New Consular Appointment System Launched</h4>
+                            <p class="text-gray-600 text-sm mb-4">To improve service delivery, the Embassy has launched a new online appointment booking system for all consular services.</p>
+                             <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
-                    <!-- News Card 3 -->
-                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/CCCCCC/000000?text=Community+Meeting" class="w-full h-48 object-cover" alt="News Image">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Business forum" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <span class="text-sm text-gray-500">July 30, 2025</span>
-                            <h3 class="text-xl font-bold my-2">Town Hall with Nigerian Community</h3>
-                            <p class="text-gray-600 mb-4">A productive meeting with the Nigerian community to discuss important issues.</p>
-                            <a href="#" class="font-semibold nigeria-green hover:underline">Read More &rarr;</a>
+                             <span class="text-xs text-gray-500">August 15, 2025</span>
+                            <h4 class="font-bold text-lg my-2">Nigeria-Czech Business Forum Announced</h4>
+                            <p class="text-gray-600 text-sm mb-4">The Embassy is pleased to announce the upcoming Nigeria-Czech Business Forum aimed at boosting trade and investment.</p>
+                             <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -308,91 +343,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20">
+        <footer id="contact" class="nigeria-green-bg text-white pt-20 pb-10 scroll-mt-16">
             <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Contact Us</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We are here to assist you. Please find our contact details and office hours below.</p>
-                </div>
-                <div class="flex flex-col lg:flex-row gap-8 bg-white p-8 rounded-lg shadow-xl">
-                    <div class="lg:w-1/2">
-                        <h3 class="text-2xl font-bold mb-4 nigeria-green">Embassy of Nigeria, Prague</h3>
-                        <div class="space-y-4 text-gray-700">
-                            <p class="flex items-start"><i class="fas fa-map-marker-alt nigeria-green w-6 pt-1"></i><span>Pelléova 2a, 160 00 Praha 6-Bubeneč, Czech Republic</span></p>
-                            <p class="flex items-center"><i class="fas fa-phone nigeria-green w-6"></i><span>+420 224 311 098</span></p>
-                            <p class="flex items-center"><i class="fas fa-envelope nigeria-green w-6"></i><span>info@nigerianembassy.cz</span></p>
-                            <p class="flex items-start"><i class="fas fa-clock nigeria-green w-6 pt-1"></i><span><strong>Consular Hours:</strong><br>Monday - Friday: 9:00 AM - 1:00 PM</span></p>
-                            <p class="flex items-center"><i class="fas fa-question-circle nigeria-green w-6"></i><a href="#" class="hover:underline">Frequently Asked Questions (FAQs)</a></p>
-                        </div>
-                         <div class="mt-6 flex space-x-4">
-                            <a href="#" class="text-gray-500 hover:nigeria-green text-2xl"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-gray-500 hover:nigeria-green text-2xl"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-gray-500 hover:nigeria-green text-2xl"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2">
-                         <div class="h-64 md:h-full w-full rounded-lg overflow-hidden">
-                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.431268673738!2d14.40118867702213!3d50.09884691238808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9538a8e31557%3A0x868c62c80338784!2sEmbassy%20of%20Nigeria!5e0!3m2!1sen!2scz!4v1693582000000!5m2!1sen!2scz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="nigeria-green-bg text-white py-10">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="year"></span> Embassy of the Federal Republic of Nigeria, Prague. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling for anchor links and mobile menu link clicks
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-                // Close mobile menu if a link is clicked
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-        
-        // Mobile menu accordions
-        const accordionToggles = document.querySelectorAll('.mobile-accordion-toggle');
-        accordionToggles.forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('i');
-                
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    icon.classList.remove('rotate-180');
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    icon.classList.add('rotate-180');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-
-
-
+                <div class="grid grid-cols-1 md:grid-cols
 
