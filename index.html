@@ -3,524 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embassy of Nigeria, Prague</title>
+    <title>Embassy of Nigeria, Prague | Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #008751; /* Nigerian Green */
-            --secondary-color: #FFFFFF;
-            --text-color: #333333;
-            --light-gray: #f4f4f4;
-            --dark-gray: #555555;
-            --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        html {
+        body {
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.6;
+        .nigeria-green {
+            color: #008751;
         }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
+        .nigeria-green-bg {
+            background-color: #008751;
         }
-        /* Header & Navigation */
-        header {
-            background: var(--secondary-color);
-            padding: 1rem 0;
-            border-bottom: 5px solid var(--primary-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--box-shadow);
-        }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-        header .logo img {
-            height: 60px;
-            margin-right: 15px;
-        }
-        header .logo span {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-        nav ul li {
+        .section-title {
             position: relative;
+            padding-bottom: 10px;
         }
-        nav ul li a {
-            color: var(--primary-color);
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            font-weight: 600;
-            transition: background-color 0.3s, color 0.3s;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #008751;
+            border-radius: 2px;
         }
-        nav ul li a:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
         }
-        /* Dropdown Menu */
-        nav ul .dropdown-content {
+        /* REMOVED .dropdown:hover .dropdown-content to handle with JavaScript */
+        .dropdown-content {
             display: none;
             position: absolute;
-            background-color: var(--light-gray);
-            min-width: 250px;
-            box-shadow: var(--box-shadow);
+            background-color: white;
+            min-width: 240px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            border-top: 3px solid var(--primary-color);
+            border-radius: 0.5rem;
+            padding: 0.5rem 0;
+            border-top: 3px solid #008751;
         }
-        nav ul .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        nav ul .dropdown-content a {
-            color: var(--text-color);
+        .dropdown-content a {
+            color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: left;
-        }
-        nav ul .dropdown-content a:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-        /* Hero Section */
-        .hero {
-            background: url('images/hero-background.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--secondary-color);
-            position: relative;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .hero-content {
-            z-index: 1;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        .hero p {
-            font-size: 1.5rem;
-        }
-        /* General Section Styling */
-        section {
-            padding: 60px 0;
-        }
-        section.bg-light {
-            background: var(--light-gray);
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-        }
-        h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        ul.styled-list {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        /* Ambassador Section */
-        .ambassador {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .ambassador-photo {
-            flex: 1;
-            min-width: 250px;
-            max-width: 300px;
-        }
-        .ambassador-photo img {
-            width: 100%;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-        }
-        .ambassador-bio {
-            flex: 2;
-            min-width: 300px;
-        }
-        /* About Grids */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: center;
-        }
-        .about-grid img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-        }
-        /* Photo Gallery Styles */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-            height: 250px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-item .caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .gallery-item:hover .caption {
-            opacity: 1;
-        }
-        /* News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .news-card {
-            background: var(--secondary-color);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease;
-        }
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        .news-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .news-content {
-            padding: 20px;
-        }
-        .news-content h4 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: var(--secondary-color);
-            padding: 40px 0;
-        }
-        footer .container {
-            display: flex;
-            justify-content: space-around;
-            text-align: left;
-            flex-wrap: wrap;
-        }
-        .footer-col {
-            flex: 1;
-            padding: 20px;
-            min-width: 250px;
-        }
-        .footer-col h4 {
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        .footer-col a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .footer-col a:hover {
-            opacity: 0.8;
-        }
-        .footer-bottom {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--secondary-color);
-            text-align: center;
             font-size: 0.9rem;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .mobile-accordion-content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Floating Flag Animation */
+        .floating-flag {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 100px;
+            z-index: 1000;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: float-animation 6s ease-in-out infinite;
+        }
+        @keyframes float-animation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
 
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Nigerian Coat of Arms">
-                <span>Embassy of Nigeria<br>Prague, Czech Republic</span>
+    <!-- Floating Nigerian Flag -->
+    <img src="images/nigerian-flag.png" alt="Floating Nigerian Flag" class="floating-flag">
+
+
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
+                <div>
+                    <h1 class="text-lg font-bold nigeria-green">Embassy of Nigeria</h1>
+                    <p class="text-xs text-gray-600">Prague, Czech Republic</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
+                <a href="#home" class="text-gray-600 hover:nigeria-green transition duration-300">Home</a>
+                <!-- About Us Dropdown -->
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="ambassador.html">Ambassador's Welcome</a>
+                        <a href="mission-history.html">History of the Mission</a>
+                        <a href="our-team.html">Our Team</a>
+                    </div>
+                </div>
+                <!-- Nigeria Dropdown -->
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">Nigeria <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="nigeria-history.html">History & People</a>
+                        <a href="nigeria-culture.html">Culture & Tourism</a>
+                        <a href="nigeria-economy.html">Economy & Investment</a>
+                        <a href="nigeria-symbols.html">National Symbols</a>
+                    </div>
+                </div>
+                 <!-- Services Dropdown -->
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">Services <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="visas.html">Visa Services</a>
+                        <a href="etc.html">Emergency Travel Certificate</a>
+                        <hr class="my-1">
+                        <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
+                        <a href="age-declaration.html">Age Declaration</a>
+                        <a href="citizens-identification.html">Citizens Identification</a>
+                        <a href="change-of-profession.html">Change of Profession</a>
+                        <a href="burial-permit.html">Burial Transit Permit</a>
+                    </div>
+                </div>
+                <!-- Press Center Dropdown -->
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="news.html">Latest News</a>
+                        <a href="gallery.html">Photo Gallery</a>
+                    </div>
+                </div>
+                <a href="#contact" class="text-gray-600 hover:nigeria-green transition duration-300">Contact Us</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#visa-services">Consular Services ▼</a>
-                        <div class="dropdown-content">
-                            <a href="#visa-services">Visa Services</a>
-                            <a href="#passport-services">Passport Services</a>
-                            <a href="#etc">Emergency Travel Certificate</a>
-                            <a href="#age-declaration">Age Declaration</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#about-embassy">About ▼</a>
-                        <div class="dropdown-content">
-                            <a href="#about-embassy">About the Embassy</a>
-                            <a href="#about-nigeria">About Nigeria</a>
-                        </div>
-                    </li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden px-6 pb-4">
+             <div>
+                <a href="#home" class="block py-2 text-gray-600 font-semibold">Home</a>
+            </div>
+            <div>
+                <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">About Us <i class="fas fa-chevron-down text-xs"></i></button>
+                <div class="mobile-accordion-content pl-4">
+                    <a href="#ambassador-welcome" class="block py-2 text-gray-600">Ambassador's Welcome</a>
+                    <a href="#mission-history" class="block py-2 text-gray-600">History of the Mission</a>
+                    <a href="#our-team" class="block py-2 text-gray-600">Our Team</a>
+                </div>
+            </div>
+            <div>
+                <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Nigeria <i class="fas fa-chevron-down text-xs"></i></button>
+                <div class="mobile-accordion-content pl-4">
+                    <a href="#nigeria-history" class="block py-2 text-gray-600">History & People</a>
+                    <a href="#nigeria-culture" class="block py-2 text-gray-600">Culture & Tourism</a>
+                    <a href="#nigeria-economy" class="block py-2 text-gray-600">Economy & Investment</a>
+                    <a href="#nigeria-symbols" class="block py-2 text-gray-600">National Symbols</a>
+                </div>
+            </div>
+            <div>
+                <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Services <i class="fas fa-chevron-down text-xs"></i></button>
+                <div class="mobile-accordion-content pl-4">
+                    <a href="#services-visas" class="block py-2 text-gray-600">Visa Services</a>
+                    <a href="#services-etc" class="block py-2 text-gray-600">Emergency Travel Certificate</a>
+                    <a href="#services-documents-age" class="block py-2 text-gray-600">Age Declaration</a>
+                    <a href="#services-documents-id" class="block py-2 text-gray-600">Citizens Identification</a>
+                    <a href="#services-documents-profession" class="block py-2 text-gray-600">Change of Profession</a>
+                    <a href="#services-documents-burial" class="block py-2 text-gray-600">Burial Transit Permit</a>
+                </div>
+            </div>
+             <div>
+                <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Press Center <i class="fas fa-chevron-down text-xs"></i></button>
+                <div class="mobile-accordion-content pl-4">
+                    <a href="#news" class="block py-2 text-gray-600">Latest News</a>
+                    <a href="#gallery" class="block py-2 text-gray-600">Photo Gallery</a>
+                </div>
+            </div>
+            <div>
+                 <a href="#contact" class="block py-2 text-gray-600 font-semibold">Contact Us</a>
+            </div>
         </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Federal Republic of Nigeria</h1>
-            <p>Embassy in Prague, Czech Republic</p>
-        </div>
-    </section>
-
-    <section id="ambassador-message">
-        <div class="container">
-            <div class="ambassador">
-                <div class="ambassador-photo">
-                    <img src="images/ambassador.jpg" alt="Photo of the Ambassador">
-                </div>
-                <div class="ambassador-bio">
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Welcome Message</h2>
-                    <p>Dear Visitors,</p>
-                    <p>It is my great pleasure to welcome you to the official website of the Embassy of the Federal Republic of Nigeria in Prague, Czech Republic.</p>
-                    <p>This platform is designed to serve as an informative and accessible window into Nigeria – Africa’s most populous nation, rich in culture, diversity, and opportunities. Here, you will find up-to-date information about the Embassy’s services, including consular and visa matters, bilateral relations, trade and investment opportunities, cultural exchanges, and community activities.</p>
-                    <p>The Embassy remains committed to strengthening the longstanding cordial relations between Nigeria and the Czech Republic, as well as promoting mutual understanding, cooperation, and partnership in various fields. We also seek to foster stronger ties with the Nigerian community in the Czech Republic and to provide support whenever required.</p>
-                    <p>I warmly invite you to explore this website, learn more about Nigeria, and engage with us as we work together to build bridges of friendship and cooperation.</p>
-                    <p>On behalf of the Government and People of the Federal Republic of Nigeria, I thank you for visiting our website and encourage you to reach out to the Embassy whenever you need assistance or further information.</p>
-                    <p>Yours sincerely,</p>
-                    <p>
-                        <strong>Sarah Bukar-Godwin (Mrs.)</strong><br>
-                        Charge D'Affairs A.I
-                    </p>
-                </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section h-screen flex items-center justify-center text-white text-center pt-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">Embassy of the Federal Republic of Nigeria</h2>
+                <p class="text-lg md:text-2xl font-light mb-8">Strengthening diplomatic ties and serving our community in the Czech Republic.</p>
+                <a href="#services" class="bg-white nigeria-green font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Explore Our Services</a>
             </div>
-        </div>
-    </section>
-    
-    <section id="visa-services" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Visa Services</h2>
-            <p>Here you will find detailed information regarding the visa application process for travel to Nigeria. Please read all sections carefully before submitting your application. Note that visa processing times may vary, and applicants are advised to apply well in advance of their travel dates.</p>
-            <h3>Types of Visas</h3>
-            <p>The Embassy issues several types of visas, including Tourist/Visitor's Visas, Business Visas, Temporary Work Permits (TWP), and Subject to Regularization (STR) Visas for expatriates taking up employment in Nigeria. Each visa type has specific requirements based on the purpose of travel.</p>
-            <h3>General Requirements</h3>
-            <ul class="styled-list">
-                <li>Valid passport with at least 6 months validity and two blank visa pages.</li>
-                <li>Completed online visa application form from the Nigeria Immigration Service portal.</li>
-                <li>Proof of online payment of visa fees.</li>
-                <li>Two recent passport-sized photographs (35mm x 45mm) on a white background.</li>
-                <li>Confirmed round-trip flight itinerary.</li>
-                <li>Letter of invitation from a host in Nigeria or a confirmed hotel reservation.</li>
-            </ul>
-            <h3>Application Process</h3>
-            <p>The application process is as follows: 1. Complete the application form and pay the fee online via the Nigeria Immigration Service website. 2. Print the completed form, payment receipt, and acknowledgement slip. 3. Schedule an appointment for document submission and biometrics at the Embassy.</p>
-        </div>
-    </section>
+        </section>
 
-    <section id="passport-services">
-        <div class="container">
-            <h2 class="section-title">Passport Services</h2>
-            <p>This section provides information for Nigerian citizens who wish to apply for a new passport, renew an existing one, or replace a lost/damaged passport. All passport services require a prior online application and appointment.</p>
-            <h3>New Passport Application & Renewal</h3>
-            <p>Applications for new passports (especially for newborns) and renewals are processed through the Nigeria Immigration Service portal. Applicants must provide proof of Nigerian citizenship, such as a birth certificate or old passport, along with a National Identification Number (NIN). An appointment for biometric capturing is mandatory.</p>
-            <h3>Lost or Damaged Passport</h3>
-            <p>For a lost or stolen passport, applicants must first obtain a police report from the local authorities. This report, along with an affidavit of loss, is required for the replacement application. The process is otherwise similar to a standard renewal.</p>
-        </div>
-    </section>
-
-    <section id="etc" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Emergency Travel Certificate (ETC)</h2>
-            <p>An Emergency Travel Certificate (ETC) is a one-way travel document issued to Nigerian citizens who have lost their passport and need to travel urgently to Nigeria. It is not valid for travel to any other country.</p>
-            <h3>Requirements</h3>
-             <ul class="styled-list">
-                <li>Completed ETC application form.</li>
-                <li>A police report confirming the loss of the passport.</li>
-                <li>Proof of Nigerian citizenship (e.g., copy of lost passport, birth certificate).</li>
-                <li>Two recent passport-sized photographs.</li>
-                <li>Confirmed flight ticket to Nigeria.</li>
-            </ul>
-            <h3>Validity</h3>
-            <p>The ETC is valid for a single journey to Nigeria and must be surrendered to immigration officials upon arrival.</p>
-        </div>
-    </section>
-    
-    <section id="age-declaration">
-        <div class="container">
-            <h2 class="section-title">Declaration of Age</h2>
-            <p>The Embassy provides Declaration of Age services for Nigerian citizens who require an official document to attest to their age, often in cases where the original birth certificate is unavailable.</p>
-            <h3>Procedure</h3>
-            <p>Applicants must submit a sworn affidavit of age declaration from a Nigerian court, along with their Nigerian passport, passport photographs, and any other available supporting documents. An appointment is required to process the application at the Embassy.</p>
-        </div>
-    </section>
-    
-    <section id="about-embassy" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">About the Embassy</h2>
-            <div class="about-grid">
-                <div>
-                    <h3>Our Mission</h3>
-                    <p>The Embassy of the Federal Republic of Nigeria in Prague is dedicated to strengthening the bilateral relationship between Nigeria and the Czech Republic. Our mission is to promote mutual interests in trade, investment, and cultural exchange, while diligently serving the consular needs of Nigerian citizens in the Czech Republic and providing efficient visa services to foreign nationals.</p>
-                    <h3>History</h3>
-                    <p>Diplomatic relations between Nigeria and the former Czechoslovakia were established shortly after Nigeria's independence in 1960. The Embassy in Prague has since been a vital link, fostering cooperation and friendship that has continued to grow and evolve with the Czech Republic since 1993.</p>
-                </div>
-                <div>
-                    <img src="images/logo.png" alt="Nigerian Coat of Arms" style="max-width: 300px; margin: auto; display: block;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about-nigeria">
-        <div class="container">
-            <h2 class="section-title">About Nigeria</h2>
-            <div class="about-grid">
-                <div>
-                    <img src="images/zuma-rock.jpg" alt="Zuma Rock in Nigeria">
-                </div>
-                <div>
-                    <h3>The Giant of Africa</h3>
-                    <p>Nigeria, a federal republic in West Africa, is the continent's most populous country. Its dynamic economy is one of the largest in Africa, driven by a vibrant services sector, rich natural resources, and a burgeoning tech industry. Nigeria's landscape is as diverse as its people, ranging from tropical rainforests in the south to the Sahel savannah in the north.</p>
-                </div>
-            </div>
-             <div class="about-grid" style="margin-top: 40px;">
-                <div>
-                    <h3>A Hub of Culture & Creativity</h3>
-                    <p>Home to over 250 ethnic groups, Nigeria is a tapestry of unique cultures, languages, and traditions. It is the heart of Nollywood, the world's second-largest film industry, and the driving force behind the global success of Afrobeats music. From the spicy flavors of Jollof rice to its world-renowned literature and art, Nigeria's cultural influence is felt worldwide.</p>
-                </div>
-                 <div>
-                    <img src="images/nigerian-culture.jpg" alt="Nigerian Culture">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Photo Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/gallery-1.jpg" alt="Gallery Image 1">
-                    <div class="caption">Nigerian Independence Day</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-2.jpg" alt="Gallery Image 2">
-                    <div class="caption">Cultural Festival in Lagos</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-3.jpg" alt="Gallery Image 3">
-                    <div class="caption">Bilateral Meeting with Czech Officials</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-4.jpg" alt="Gallery Image 4">
-                    <div class="caption">Aso Rock, Abuja</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-5.jpg" alt="Gallery Image 5">
-                    <div class="caption">Nigerian Community Event</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-6.jpg" alt="Gallery Image 6">
-                    <div class="caption">Lekki Conservation Centre</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="news">
-        <div class="container">
-            <h2 class="section-title">Latest News & Events</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="images/news-event1.jpg" alt="News Event 1">
-                    <div class="news-content">
-                        <h4>Embassy to Host National Day Reception</h4>
-                        <p>The Embassy will host a reception to celebrate the 65th Independence Day of Nigeria on October 1st. Details to follow for invited guests.</p>
+        <!-- Ambassador's Welcome Section -->
+        <section id="ambassador-welcome" class="py-20 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
+                        <img src="images/ambassador.jpg" alt="Ambassador Photo" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]">
                     </div>
-                </div>
-                <div class="news-card">
-                    <img src="images/news-event2.jpg" alt="News Event 2">
-                    <div class="news-content">
-                        <h4>Nigerian and Czech Tech Leaders to Meet</h4>
-                        <p>A bilateral innovation forum is scheduled for this November in Prague to foster partnerships in the tech and startup ecosystems of both nations.</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <img src="images/news-event3.jpg" alt="News Event 3">
-                    <div class="news-content">
-                        <h4>Ambassador Invites Community for Q&A</h4>
-                        <p>A town hall meeting with the Nigerian community in the Czech Republic will be held to discuss consular matters and community welfare.</p>
+                    <div class="w-full md:w-2/3 md:pl-12">
+                         <h2 class="text-3xl md:text-4xl font-bold section-title inline-block mb-6">A Message from the Ambassador</h2>
+                         <p class="text-gray-600 mb-4">On behalf of the President of the Federal Republic of Nigeria, His Excellency Bola Ahmed Tinubu, and the entire staff of the Embassy, I extend a warm welcome to the official website of the Embassy of Nigeria in Prague.</p>
+                         <p class="text-gray-600 mb-4">This website is designed to be a comprehensive resource for Nigerian citizens, our Czech friends, and international visitors. Whether you are seeking consular services, exploring business opportunities in Nigeria, or learning more about our rich culture, we are here to assist you.</p>
+                         <p class="text-gray-600">We are committed to fostering the excellent bilateral relations between Nigeria and the Czech Republic and to providing efficient and courteous service to all. Thank you for visiting.</p>
+                         <p class="font-bold mt-6 nigeria-green">H.E. Dr. Maureen Tamuno</p>
+                         <p class="text-sm text-gray-500">Ambassador of Nigeria to the Czech Republic</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+
+        <!-- Consular Services Section -->
+        <section id="services" class="py-20 bg-gray-50 scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Consular & Visa Services</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We provide a wide range of consular services. Please review the requirements for each service carefully before your visit.</p>
+                </div>
+
+                <!-- Sub-section for Visas -->
+                <div id="services-visas" class="mb-16 scroll-mt-20">
+                    <h3 class="text-2xl font-bold mb-8 text-center nigeria-green"><i class="fas fa-file-alt mr-2"></i>Visa Services</h3>
+                    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 text-center">We process applications for various categories of visas to Nigeria. All applications must be submitted through the Nigeria Immigration Service portal. Please note that the Embassy is not responsible for payments or processing on the portal.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 text-center">
+                            <span class="font-semibold">Business Visa</span>
+                            <span class="font-semibold">Tourist Visa</span>
+                            <span class="font-semibold">Official Visa</span>
+                            <span class="font-semibold">Transit Visa</span>
+                            <span class="font-semibold">TWP</span>
+                        </div>
+                         <div class="text-center mt-6">
+                            <a href="#" class="nigeria-green-bg text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition duration-300">Apply for Visa Online</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="services-etc" class="mb-16 scroll-mt-20">
+                     <h3 class="text-2xl font-bold mb-8 text-center nigeria-green"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Certificate</h3>
+                     <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 text-center">An Emergency Travel Certificate (ETC) is issued for urgent, one-way travel to Nigeria for citizens who have lost their passport or do not have a valid one. Applicants must provide proof of Nigerian citizenship, such as a birth certificate or a previous passport copy.</p>
+                        <div class="text-center mt-6">
+                            <a href="#" class="nigeria-green-bg text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition duration-300">Download ETC Form</a>
+                        </div>
+                     </div>
+                </div>
+
+                 <!-- Sub-section for Documents -->
+                <div id="services-documents" class="scroll-mt-20">
+                    <h3 class="text-2xl font-bold mb-8 text-center nigeria-green"><i class="fas fa-stamp mr-2"></i>Document Legalisation</h3>
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <div id="services-documents-age" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                            <h4 class="font-bold text-lg text-center mb-2">Age Declaration</h4>
+                            <p class="text-sm text-gray-600">Legalisation of statutory declaration of age documents from a Nigerian court.</p>
+                        </div>
+                        <div id="services-documents-id" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                            <h4 class="font-bold text-lg text-center mb-2">Citizens Identification</h4>
+                             <p class="text-sm text-gray-600">Authentication of documents for Nigerian citizens residing in the Czech Republic.</p>
+                        </div>
+                        <div id="services-documents-profession" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                             <h4 class="font-bold text-lg text-center mb-2">Change of Profession</h4>
+                             <p class="text-sm text-gray-600">Legalisation of official documents related to a change of profession.</p>
+                        </div>
+                        <div id="services-documents-burial" class="service-card bg-white p-6 rounded-lg shadow scroll-mt-20">
+                             <h4 class="font-bold text-lg text-center mb-2">Burial Transit Permit</h4>
+                             <p class="text-sm text-gray-600">Issuance of permits for the transportation of human remains to Nigeria for burial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Nigeria Section -->
+        <section id="nigeria-history" class="py-20 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Discover Nigeria</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">A vibrant nation with a rich history, diverse culture, and boundless opportunities.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 nigeria-green">History & People</h3>
+                        <p class="text-gray-600 mb-4">Nigeria, the "Giant of Africa," is a country of over 200 million people with more than 250 ethnic groups. Its history is rich with powerful kingdoms and empires. It gained independence from the United Kingdom in 1960 and has since become a federal republic, playing a significant role in African and global affairs.</p>
+                    </div>
+                    <div>
+                         <img src="images/zuma-rock.jpg" alt="Zuma Rock, Nigeria" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+                 <div id="nigeria-culture" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16 scroll-mt-16">
+                     <div class="order-2 md:order-1">
+                         <img src="images/nigerian-culture.jpg" alt="Nigerian Jollof Rice" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-2xl font-bold mb-4 nigeria-green">Culture, Arts & Tourism</h3>
+                        <p class="text-gray-600 mb-4">Nigerian culture is expressed through its music, dance, literature, and film. The Nigerian film industry, known as "Nollywood," is the second-largest in the world. From the sandy beaches of Lagos to the ancient city of Kano and the plateaus of Jos, Nigeria offers a wealth of tourist attractions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- News Section -->
+        <section id="news" class="py-20 bg-gray-50 scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Latest News & Events</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="images/news-event1.jpg" alt="Community event" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-xs text-gray-500">September 1, 2025</span>
+                            <h4 class="font-bold text-lg my-2">Embassy Celebrates Nigerian Independence Day</h4>
+                            <p class="text-gray-600 text-sm mb-4">The Embassy will host a flag-raising ceremony and cultural reception to mark Nigeria's 65th Independence Day anniversary on October 1st.</p>
+                            <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="images/news-event2.jpg" alt="Online booking system" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                             <span class="text-xs text-gray-500">August 25, 2025</span>
+                            <h4 class="font-bold text-lg my-2">New Consular Appointment System Launched</h4>
+                            <p class="text-gray-600 text-sm mb-4">To improve service delivery, the Embassy has launched a new online appointment booking system for all consular services.</p>
+                             <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="images/news-event3.jpg" alt="Business forum" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                             <span class="text-xs text-gray-500">August 15, 2025</span>
+                            <h4 class="font-bold text-lg my-2">Nigeria-Czech Business Forum Announced</h4>
+                            <p class="text-gray-600 text-sm mb-4">The Embassy is pleased to announce the upcoming Nigeria-Czech Business Forum aimed at boosting trade and investment.</p>
+                             <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <footer id="contact" class="nigeria-green-bg text-white pt-20 pb-10 scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="font-bold text-xl mb-4">About the Embassy</h4>
+                        <p class="text-sm">The Embassy of the Federal Republic of Nigeria in Prague is the official diplomatic representation of Nigeria in the Czech Republic, dedicated to serving Nigerians and fostering bilateral relations.</p>
+                    </div>
+                     <div>
+                        <h4 class="font-bold text-xl mb-4">Contact Information</h4>
+                        <ul class="text-sm space-y-2">
+                            <li class="flex items-start"><i class="fas fa-map-marker-alt w-4 mr-3 mt-1"></i><span>Na Čihadle 32, 160 00 Praha 6, Czech Republic</span></li>
+                            <li class="flex items-center"><i class="fas fa-phone-alt w-4 mr-3"></i><span>+420 220 561 040</span></li>
+                            <li class="flex items-center"><i class="fas fa-envelope w-4 mr-3"></i><span>info@nigerianembassy.cz</span></li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h4 class="font-bold text-xl mb-4">Consular Hours</h4>
+                         <ul class="text-sm space-y-2">
+                            <li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li>
+                            <li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-4">Our Location</h4>
+                        <iframe src="https://maps.google.com/maps?q=Na%20%C4%8Cihadle%2032,%20160%2000%20Praha%206&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+                    </div>
+                </div>
+                <div class="border-t border-gray-100 opacity-50 mt-10 pt-6 text-center text-sm">
+                    <p>&copy; 2025 Embassy of the Federal Republic of Nigeria, Prague. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Mobile accordion logic
+            const accordionToggles = document.querySelectorAll('.mobile-accordion-toggle');
+            accordionToggles.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('i');
+                    
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    } else {
+                        content.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                });
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                // Only close menu for links that are not accordion toggles
+                if (!link.closest('.mobile-accordion-toggle')) {
+                     link.addEventListener('click', () => {
+                        if (!link.parentElement.classList.contains('mobile-accordion-content')){
+                            mobileMenu.classList.add('hidden');
+                        }
+                    });
+                }
+            });
+
+            // Desktop Dropdown Click Logic
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    // Close all other open dropdowns
+                    document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
+                        if (openDropdown !== this.nextElementSibling) {
+                            openDropdown.classList.remove('show');
+                            openDropdown.style.display = 'none';
+                        }
+                    });
+                    
+                    const dropdownContent = this.nextElementSibling;
+                    const isVisible = dropdownContent.classList.toggle('show');
+                    dropdownContent.style.display = isVisible ? 'block' : 'none';
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function(event) {
+                document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
+                    openDropdown.classList.remove('show');
+                    openDropdown.style.display = 'none';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
