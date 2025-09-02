@@ -39,8 +39,8 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-background.jpg');
             background-size: cover;
             background-position: center;
+            animation: kenburns-zoom 20s ease-out infinite;
         }
-        /* REMOVED .dropdown:hover .dropdown-content to handle with JavaScript */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -83,6 +83,11 @@
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
+        /* Hero Background Animation */
+        @keyframes kenburns-zoom {
+            0% { background-size: 100% 100%; }
+            100% { background-size: 110% 110%; }
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -94,7 +99,7 @@
     <!-- Header -->
     <header class="bg-white shadow-md fixed w-full z-10">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-3">
+            <a href="index.html" class="flex items-center space-x-3">
                 <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
                 <div>
                     <h1 class="text-lg font-bold nigeria-green">Embassy of Nigeria</h1>
@@ -104,7 +109,7 @@
             
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
-                <a href="#home" class="text-gray-600 hover:nigeria-green transition duration-300">Home</a>
+                <a href="index.html" class="text-gray-600 hover:nigeria-green transition duration-300">Home</a>
                 <!-- About Us Dropdown -->
                 <div class="dropdown relative">
                     <button class="dropdown-toggle text-gray-600 hover:nigeria-green transition duration-300 inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
@@ -146,7 +151,7 @@
                         <a href="gallery.html">Photo Gallery</a>
                     </div>
                 </div>
-                <a href="#contact" class="text-gray-600 hover:nigeria-green transition duration-300">Contact Us</a>
+                <a href="index.html#contact" class="text-gray-600 hover:nigeria-green transition duration-300">Contact Us</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -160,45 +165,45 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="lg:hidden hidden px-6 pb-4">
              <div>
-                <a href="#home" class="block py-2 text-gray-600 font-semibold">Home</a>
+                <a href="index.html" class="block py-2 text-gray-600 font-semibold">Home</a>
             </div>
             <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">About Us <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
-                    <a href="#ambassador-welcome" class="block py-2 text-gray-600">Ambassador's Welcome</a>
-                    <a href="#mission-history" class="block py-2 text-gray-600">History of the Mission</a>
-                    <a href="#our-team" class="block py-2 text-gray-600">Our Team</a>
+                    <a href="ambassador.html" class="block py-2 text-gray-600">Ambassador's Welcome</a>
+                    <a href="mission-history.html" class="block py-2 text-gray-600">History of the Mission</a>
+                    <a href="our-team.html" class="block py-2 text-gray-600">Our Team</a>
                 </div>
             </div>
             <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Nigeria <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
-                    <a href="#nigeria-history" class="block py-2 text-gray-600">History & People</a>
-                    <a href="#nigeria-culture" class="block py-2 text-gray-600">Culture & Tourism</a>
-                    <a href="#nigeria-economy" class="block py-2 text-gray-600">Economy & Investment</a>
-                    <a href="#nigeria-symbols" class="block py-2 text-gray-600">National Symbols</a>
+                    <a href="nigeria-history.html" class="block py-2 text-gray-600">History & People</a>
+                    <a href="nigeria-culture.html" class="block py-2 text-gray-600">Culture & Tourism</a>
+                    <a href="nigeria-economy.html" class="block py-2 text-gray-600">Economy & Investment</a>
+                    <a href="nigeria-symbols.html" class="block py-2 text-gray-600">National Symbols</a>
                 </div>
             </div>
             <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Services <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
-                    <a href="#services-visas" class="block py-2 text-gray-600">Visa Services</a>
-                    <a href="#services-etc" class="block py-2 text-gray-600">Emergency Travel Certificate</a>
-                    <a href="#services-documents-age" class="block py-2 text-gray-600">Age Declaration</a>
-                    <a href="#services-documents-id" class="block py-2 text-gray-600">Citizens Identification</a>
-                    <a href="#services-documents-profession" class="block py-2 text-gray-600">Change of Profession</a>
-                    <a href="#services-documents-burial" class="block py-2 text-gray-600">Burial Transit Permit</a>
+                    <a href="visas.html" class="block py-2 text-gray-600">Visa Services</a>
+                    <a href="etc.html" class="block py-2 text-gray-600">Emergency Travel Certificate</a>
+                    <a href="age-declaration.html" class="block py-2 text-gray-600">Age Declaration</a>
+                    <a href="citizens-identification.html" class="block py-2 text-gray-600">Citizens Identification</a>
+                    <a href="change-of-profession.html" class="block py-2 text-gray-600">Change of Profession</a>
+                    <a href="burial-permit.html" class="block py-2 text-gray-600">Burial Transit Permit</a>
                 </div>
             </div>
              <div>
                 <button class="mobile-accordion-toggle w-full text-left py-2 text-gray-600 font-semibold flex justify-between items-center">Press Center <i class="fas fa-chevron-down text-xs"></i></button>
                 <div class="mobile-accordion-content pl-4">
-                    <a href="#news" class="block py-2 text-gray-600">Latest News</a>
-                    <a href="#gallery" class="block py-2 text-gray-600">Photo Gallery</a>
+                    <a href="news.html" class="block py-2 text-gray-600">Latest News</a>
+                    <a href="gallery.html" class="block py-2 text-gray-600">Photo Gallery</a>
                 </div>
             </div>
             <div>
-                 <a href="#contact" class="block py-2 text-gray-600 font-semibold">Contact Us</a>
+                 <a href="index.html#contact" class="block py-2 text-gray-600 font-semibold">Contact Us</a>
             </div>
         </div>
     </header>
@@ -209,7 +214,7 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">Embassy of the Federal Republic of Nigeria</h2>
                 <p class="text-lg md:text-2xl font-light mb-8">Strengthening diplomatic ties and serving our community in the Czech Republic.</p>
-                <a href="#services" class="bg-white nigeria-green font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Explore Our Services</a>
+                <a href="services.html" class="bg-white nigeria-green font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Explore Our Services</a>
             </div>
         </section>
 
@@ -335,7 +340,7 @@
                             <span class="text-xs text-gray-500">September 1, 2025</span>
                             <h4 class="font-bold text-lg my-2">Embassy Celebrates Nigerian Independence Day</h4>
                             <p class="text-gray-600 text-sm mb-4">The Embassy will host a flag-raising ceremony and cultural reception to mark Nigeria's 65th Independence Day anniversary on October 1st.</p>
-                            <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="news-article1.html" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -344,7 +349,7 @@
                              <span class="text-xs text-gray-500">August 25, 2025</span>
                             <h4 class="font-bold text-lg my-2">New Consular Appointment System Launched</h4>
                             <p class="text-gray-600 text-sm mb-4">To improve service delivery, the Embassy has launched a new online appointment booking system for all consular services.</p>
-                             <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                             <a href="news-article2.html" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -353,7 +358,7 @@
                              <span class="text-xs text-gray-500">August 15, 2025</span>
                             <h4 class="font-bold text-lg my-2">Nigeria-Czech Business Forum Announced</h4>
                             <p class="text-gray-600 text-sm mb-4">The Embassy is pleased to announce the upcoming Nigeria-Czech Business Forum aimed at boosting trade and investment.</p>
-                             <a href="#" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                             <a href="news-article3.html" class="nigeria-green font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -443,23 +448,21 @@
                 toggle.addEventListener('click', function(event) {
                     event.stopPropagation();
                     // Close all other open dropdowns
-                    document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
+                    document.querySelectorAll('.dropdown-content').forEach(openDropdown => {
                         if (openDropdown !== this.nextElementSibling) {
-                            openDropdown.classList.remove('show');
                             openDropdown.style.display = 'none';
                         }
                     });
                     
                     const dropdownContent = this.nextElementSibling;
-                    const isVisible = dropdownContent.classList.toggle('show');
-                    dropdownContent.style.display = isVisible ? 'block' : 'none';
+                    const isVisible = getComputedStyle(dropdownContent).display === 'block';
+                    dropdownContent.style.display = isVisible ? 'none' : 'block';
                 });
             });
 
             // Close dropdowns when clicking outside
             window.addEventListener('click', function(event) {
-                document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
-                    openDropdown.classList.remove('show');
+                document.querySelectorAll('.dropdown-content').forEach(openDropdown => {
                     openDropdown.style.display = 'none';
                 });
             });
