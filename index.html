@@ -384,4 +384,17 @@
     </script>
 </body>
 </html>
+ // Translate button logic
+            const translateLink = document.getElementById('translate-link');
+            if(translateLink) {
+                const currentPageUrl = window.location.href;
+                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
+                translateLink.href = googleTranslateUrl;
+                translateLink.target = '_blank'; // Open in a new tab
+            }
+        });
+    </script>
+</body>
+</html>
+
 
