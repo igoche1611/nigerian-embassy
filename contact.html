@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Embassy of the Federal Republic of Nigeria, Prague</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Lato', sans-serif; }
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .nigeria-green { color: #008751; }
+        .nigeria-green-bg { background-color: #008751; }
+        .dropdown .dropdown-content { display: none; }
+        .dropdown-content { position: absolute; background-color: white; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 0.5rem; padding: 0.5rem 0; border-top: 3px solid #008751; }
+        .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
+        .dropdown-content a:hover { background-color: #f1f1f1; }
+        .form-input {
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .form-input:focus {
+            border-color: #008751;
+            box-shadow: 0 0 0 3px rgba(0, 135, 81, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 w-full z-10">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
+                <div>
+                    <h1 class="text-lg font-bold nigeria-green font-heading">Embassy of Nigeria</h1>
+                    <p class="text-xs text-gray-600">Prague, Czech Republic</p>
+                </div>
+            </a>
+            <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
+                <a href="index.html" class="text-gray-600 hover:nigeria-green">Home</a>
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="ambassador.html">Ambassador's Welcome</a>
+                        <a href="mission-history.html">History of the Mission</a>
+                        <a href="our-team.html">Our Team</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Nigeria <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="nigeria-history.html">History & People</a>
+                        <a href="nigeria-culture.html">Culture & Tourism</a>
+                        <a href="nigeria-economy.html">Economy & Investment</a>
+                        <a href="nigeria-symbols.html">National Symbols</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Services <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="visas.html">Visa Services</a>
+                        <a href="etc.html">Emergency Travel Certificate</a>
+                        <hr class="my-1">
+                        <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
+                        <a href="age-declaration.html">Age Declaration</a>
+                        <a href="citizens-identification.html">Citizens Identification</a>
+                        <a href="change-of-profession.html">Change of Profession</a>
+                        <a href="burial-permit.html">Burial Transit Permit</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                    <div class="dropdown-content">
+                        <a href="news.html">Latest News</a>
+                        <a href="gallery.html">Photo Gallery</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nigeria-green">Contact Us</a>
+            </div>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden px-6 pb-4"></div>
+    </header>
+
+    <main>
+        <!-- Page Title Header -->
+        <section class="bg-gray-200 py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl font-bold font-heading text-gray-800">Contact Us</h1>
+                <p class="text-gray-600 mt-2">We are here to help. Reach out to us through any of the channels below.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div>
+                        <h2 class="text-3xl font-bold font-heading mb-6">Send Us a Message</h2>
+                        <form action="mailto:info@nigerianembassy.cz" method="post" enctype="text/plain">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                <input type="text" id="name" name="Name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                                <input type="email" id="email" name="Email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label>
+                                <input type="text" id="subject" name="Subject" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                                <textarea id="message" name="Message" rows="5" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="nigeria-green-bg text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity w-full">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Contact Details & Map -->
+                    <div>
+                        <h2 class="text-3xl font-bold font-heading mb-6">Our Information</h2>
+                        <div class="space-y-6">
+                            <div><h4 class="font-bold text-xl mb-2 font-heading">Contact Details</h4><ul class="text-gray-700 space-y-2"><li class="flex items-start"><i class="fas fa-map-marker-alt w-5 mr-3 mt-1 nigeria-green"></i><span>Na Čihadle 32, 160 00 Praha 6, Czech Republic</span></li><li class="flex items-center"><i class="fas fa-phone-alt w-5 mr-3 nigeria-green"></i><span>+420 220 561 040</span></li><li class="flex items-center"><i class="fas fa-envelope w-5 mr-3 nigeria-green"></i><span>info@nigerianembassy.cz</span></li></ul></div>
+                            <div><h4 class="font-bold text-xl mb-2 font-heading">Consular Hours</h4><ul class="text-gray-700 space-y-2"><li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li><li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li></ul></div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2 font-heading">Our Location</h4>
+                                <iframe src="https://maps.google.com/maps?q=Na%20%C4%8Cihadle%2032,%20160%2000%20Praha%206&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg shadow-md"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="nigeria-green-bg text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div><h4 class="font-bold text-xl mb-4 font-heading">About the Embassy</h4><p class="text-sm">The Embassy of the Federal Republic of Nigeria in Prague is the official diplomatic representation of Nigeria in the Czech Republic.</p></div>
+                <div><h4 class="font-bold text-xl mb-4 font-heading">Quick Links</h4><ul class="text-sm space-y-2"><li class="hover:underline"><a href="visas.html">Visa Services</a></li><li class="hover:underline"><a href="etc.html">Emergency Travel</a></li><li class="hover:underline"><a href="news.html">Latest News</a></li></ul></div>
+                <div>
+                    <h4 class="font-bold text-xl mb-4 font-heading">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="https://facebook.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-facebook-f text-2xl"></i></a>
+                        <a href="https://instagram.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div>
+                <div><h4 class="font-bold text-xl mb-4 font-heading">Consular Hours</h4><ul class="text-sm space-y-2"><li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li><li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li></ul></div>
+            </div>
+            <div class="border-t border-gray-100 opacity-50 mt-10 pt-6 text-center text-sm"><p>&copy; 2025 Embassy of Nigeria, Prague. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Desktop dropdowns
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== this.nextElementSibling) d.style.display = 'none'; });
+                    const dropdownContent = this.nextElementSibling;
+                    dropdownContent.style.display = window.getComputedStyle(dropdownContent).display === 'block' ? 'none' : 'block';
+                });
+            });
+            window.addEventListener('click', () => document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none'));
+
+            // Mobile menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navHtml = document.querySelector('.hidden.lg\\:flex').innerHTML;
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.innerHTML = navHtml;
+                    mobileMenu.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                        toggle.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const content = this.nextElementSibling;
+                            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
