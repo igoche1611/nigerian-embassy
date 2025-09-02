@@ -25,6 +25,16 @@
             border-color: #008751;
             box-shadow: 0 0 0 3px rgba(0, 135, 81, 0.2);
         }
+        .main-content-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-3d-effect {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .card-3d-effect:hover {
+            transform: translateY(-8px) perspective(1000px) rotateY(-3deg);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -98,50 +108,52 @@
         </section>
 
         <!-- Contact Content Section -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Contact Form -->
-                    <div>
-                        <h2 class="text-3xl font-bold font-heading mb-6">Send Us a Message</h2>
-                        <form action="mailto:info@nigerianembassy.cz" method="post" enctype="text/plain">
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
-                                <input type="text" id="name" name="Name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
-                                <input type="email" id="email" name="Email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label>
-                                <input type="text" id="subject" name="Subject" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                                <textarea id="message" name="Message" rows="5" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required></textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="nigeria-green-bg text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity w-full">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
+        <div class="main-content-bg">
+            <section class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Contact Form -->
+                        <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-3d-effect">
+                            <h2 class="text-3xl font-bold font-heading mb-6">Send Us a Message</h2>
+                            <form action="mailto:info@nigerianembassy.cz" method="post" enctype="text/plain">
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                    <input type="text" id="name" name="Name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                                    <input type="email" id="email" name="Email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label>
+                                    <input type="text" id="subject" name="Subject" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                                    <textarea id="message" name="Message" rows="5" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" required></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="nigeria-green-bg text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity w-full">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
 
-                    <!-- Contact Details & Map -->
-                    <div>
-                        <h2 class="text-3xl font-bold font-heading mb-6">Our Information</h2>
-                        <div class="space-y-6">
-                            <div><h4 class="font-bold text-xl mb-2 font-heading">Contact Details</h4><ul class="text-gray-700 space-y-2"><li class="flex items-start"><i class="fas fa-map-marker-alt w-5 mr-3 mt-1 nigeria-green"></i><span>Na Čihadle 32, 160 00 Praha 6, Czech Republic</span></li><li class="flex items-center"><i class="fas fa-phone-alt w-5 mr-3 nigeria-green"></i><span>+420 220 561 040</span></li><li class="flex items-center"><i class="fas fa-envelope w-5 mr-3 nigeria-green"></i><span>info@nigerianembassy.cz</span></li></ul></div>
-                            <div><h4 class="font-bold text-xl mb-2 font-heading">Consular Hours</h4><ul class="text-gray-700 space-y-2"><li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li><li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li></ul></div>
-                            <div>
-                                <h4 class="font-bold text-xl mb-2 font-heading">Our Location</h4>
-                                <iframe src="https://maps.google.com/maps?q=Na%20%C4%8Cihadle%2032,%20160%2000%20Praha%206&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg shadow-md"></iframe>
+                        <!-- Contact Details & Map -->
+                        <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-3d-effect">
+                            <h2 class="text-3xl font-bold font-heading mb-6">Our Information</h2>
+                            <div class="space-y-6">
+                                <div><h4 class="font-bold text-xl mb-2 font-heading">Contact Details</h4><ul class="text-gray-700 space-y-2"><li class="flex items-start"><i class="fas fa-map-marker-alt w-5 mr-3 mt-1 nigeria-green"></i><span>Na Čihadle 32, 160 00 Praha 6, Czech Republic</span></li><li class="flex items-center"><i class="fas fa-phone-alt w-5 mr-3 nigeria-green"></i><span>+420 220 561 040</span></li><li class="flex items-center"><i class="fas fa-envelope w-5 mr-3 nigeria-green"></i><span>info@nigerianembassy.cz</span></li></ul></div>
+                                <div><h4 class="font-bold text-xl mb-2 font-heading">Consular Hours</h4><ul class="text-gray-700 space-y-2"><li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li><li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li></ul></div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-2 font-heading">Our Location</h4>
+                                    <iframe src="https://maps.google.com/maps?q=Na%20%C4%8Cihadle%2032,%20160%2000%20Praha%206&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg shadow-md"></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -199,3 +211,4 @@
     </script>
 </body>
 </html>
+
