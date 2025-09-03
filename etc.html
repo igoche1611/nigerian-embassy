@@ -24,11 +24,11 @@
         .main-content-bg {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        .card-3d-effect {
+        .card-lift-effect {
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
         }
-        .card-3d-effect:hover {
-            transform: translateY(-8px) perspective(1000px) rotateY(-3deg);
+        .card-lift-effect:hover {
+            transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
         .translate-button {
@@ -147,7 +147,7 @@
     <main>
         <!-- Page Title Header -->
         <section class="relative py-20 text-white">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/etc-background.png');"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/header-background.jpg');"></div>
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="container mx-auto px-6 relative z-10">
                 <h1 class="text-4xl font-bold font-heading">Emergency Travel Certificate</h1>
@@ -158,7 +158,7 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-3d-effect">
+                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
                         <div class="prose max-w-none text-gray-700 space-y-6">
                             <p>An Emergency Travel Certificate (ETC) is a one-way travel document issued to Nigerian citizens who are stranded abroad without a valid passport. This document is intended to facilitate an urgent return to Nigeria only.</p>
                             
@@ -236,23 +236,47 @@
                     dropdownContent.style.display = window.getComputedStyle(dropdownContent).display === 'block' ? 'none' : 'block';
                 });
             });
-            window.addEventListener('click', () => document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none'));
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const navContainer = document.querySelector('.hidden.lg\\:flex');
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                if (!mobileMenu.classList.contains('hidden')) {
+            
+            mobileMenuButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                
+                if (!isHidden && mobileMenu.innerHTML.trim() === "") {
                     mobileMenu.innerHTML = navContainer.innerHTML;
-                    mobileMenu.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                        toggle.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const content = this.nextElementSibling;
-                            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-                        });
+                    mobileMenu.querySelectorAll('.dropdown').forEach(dropdown => {
+                        const toggle = dropdown.querySelector('.dropdown-toggle');
+                        const content = dropdown.querySelector('.dropdown-content');
+                        if (toggle && content) {
+                            toggle.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                mobileMenu.querySelectorAll('.dropdown-content').forEach(otherContent => {
+                                    if (otherContent !== content) {
+                                        otherContent.style.display = 'none';
+                                    }
+                                });
+                                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                            });
+                        }
                     });
                 }
             });
+
+            document.addEventListener('click', function(event) {
+                const isDesktopDropdown = event.target.closest('.dropdown');
+                if (!isDesktopDropdown) {
+                    document.querySelectorAll('header .dropdown-content').forEach(d => d.style.display = 'none');
+                }
+                const isMobileMenuClick = event.target.closest('#mobile-menu');
+                const isMobileButton = event.target.closest('#mobile-menu-button');
+                if (!isMobileMenuClick && !isMobileButton) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            
             const translateLink = document.getElementById('translate-link');
             if(translateLink) {
                 const currentPageUrl = window.location.href;
