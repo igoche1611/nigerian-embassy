@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nigeria - History & People | Embassy of Nigeria, Prague</title>
+    <title>History & People of Nigeria | Embassy of Nigeria, Prague</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,9 @@
         .font-heading { font-family: 'Playfair Display', serif; }
         .nigeria-green { color: #008751; }
         .nigeria-green-bg { background-color: #008751; }
+        header {
+            border-bottom: 4px solid #008751;
+        }
         .dropdown .dropdown-content { display: none; }
         .dropdown-content { position: absolute; background-color: white; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 0.5rem; padding: 0.5rem 0; border-top: 3px solid #008751; }
         .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
@@ -66,53 +69,72 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-10">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3">
-                <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
-                <div>
-                    <h1 class="text-lg font-bold nigeria-green font-heading">Embassy of Nigeria</h1>
-                    <p class="text-xs text-gray-600">Prague, Czech Republic</p>
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
+                    <div>
+                        <h1 class="text-lg font-bold nigeria-green font-heading">Embassy of Nigeria</h1>
+                        <p class="text-xs text-gray-600">Prague, Czech Republic</p>
+                    </div>
+                </a>
+                <div class="hidden xl:flex items-center text-sm text-gray-500 ml-8 pl-8 border-l border-gray-200">
+                    <i class="fas fa-clock mr-2 nigeria-green"></i>
+                    <span id="prague-time"></span>
                 </div>
-            </a>
-            <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
-                <a href="index.html" class="text-gray-600 hover:nigeria-green">Home</a>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="ambassador.html">Ambassador's Welcome</a>
-                        <a href="mission-history.html">History of the Mission</a>
-                        <a href="our-team.html">Our Team</a>
+            </div>
+            <div class="hidden lg:flex items-center">
+                <div class="flex items-center space-x-6 text-sm font-semibold">
+                    <a href="index.html" class="text-gray-600 hover:nigeria-green">Home</a>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="ambassador.html">Ambassador's Welcome</a>
+                            <a href="mission-history.html">History of the Mission</a>
+                            <a href="our-team.html">Our Team</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle nigeria-green inline-flex items-center">Nigeria <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="nigeria-history.html">History & People</a>
+                            <a href="nigeria-culture.html">Culture & Tourism</a>
+                            <a href="nigeria-economy.html">Economy & Investment</a>
+                            <a href="nigeria-symbols.html">National Symbols</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Services <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="visas.html">Visa Services</a>
+                            <a href="etc.html">Emergency Travel Certificate</a>
+                            <hr class="my-1">
+                            <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
+                            <a href="age-declaration.html">Age Declaration</a>
+                            <a href="citizens-identification.html">Citizens Identification</a>
+                            <a href="change-of-profession.html">Change of Profession</a>
+                            <a href="burial-permit.html">Burial Transit Permit</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="news.html">Latest News</a>
+                            <a href="gallery.html">Photo Gallery</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-gray-600 hover:nigeria-green">Contact Us</a>
+                </div>
+                <div class="flex items-center ml-6 pl-6 border-l border-gray-200">
+                    <div class="hidden xl:flex items-center text-sm text-gray-600 mr-6">
+                        <i class="fas fa-phone-alt mr-2 nigeria-green"></i>
+                        <span>+420 220 561 040</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://x.com/NigeriaInPrague" class="text-gray-500 hover:nigeria-green transition-colors" title="Follow us on X"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                        <a href="https://facebook.com/NigeriaInPrague" class="text-gray-500 hover:nigeria-green transition-colors" title="Follow us on Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="https://instagram.com/NigeriaInPrague" class="text-gray-500 hover:nigeria-green transition-colors" title="Follow us on Instagram"><i class="fab fa-instagram text-xl"></i></a>
                     </div>
                 </div>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle nigeria-green inline-flex items-center">Nigeria <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="nigeria-history.html">History & People</a>
-                        <a href="nigeria-culture.html">Culture & Tourism</a>
-                        <a href="nigeria-economy.html">Economy & Investment</a>
-                        <a href="nigeria-symbols.html">National Symbols</a>
-                    </div>
-                </div>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Services <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="visas.html">Visa Services</a>
-                        <a href="etc.html">Emergency Travel Certificate</a>
-                        <hr class="my-1">
-                        <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
-                        <a href="age-declaration.html">Age Declaration</a>
-                        <a href="citizens-identification.html">Citizens Identification</a>
-                        <a href="change-of-profession.html">Change of Profession</a>
-                        <a href="burial-permit.html">Burial Transit Permit</a>
-                    </div>
-                </div>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="news.html">Latest News</a>
-                        <a href="gallery.html">Photo Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="text-gray-600 hover:nigeria-green">Contact Us</a>
             </div>
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
@@ -135,14 +157,15 @@
             <section class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-3d-effect">
-                        <div class="prose max-w-none text-gray-700 space-y-4">
-                            <h2 class="text-3xl font-bold font-heading text-gray-800">A Nation Forged in History</h2>
-                            <p>Nigeria's history is one of ancient kingdoms, rich traditions, and a dynamic journey to modern nationhood. The area has been inhabited for millennia, with evidence of early civilizations such as the Nok culture, renowned for its sophisticated terracotta sculptures dating back to 1500 BC. Over centuries, powerful kingdoms and empires rose and fell, including the Kingdom of Nri, the Oyo Empire, the Benin Empire, and the Hausa city-states, each leaving an indelible mark on the cultural and political landscape.</p>
-                            <p>The colonial era began in the 19th century, culminating in the amalgamation of the Southern and Northern Nigeria Protectorates in 1914 to create the single entity of Nigeria. The country gained its independence from British rule on October 1, 1960, becoming a republic in 1963. The post-independence years have been marked by periods of both challenge and progress as Nigeria continues to build a strong, democratic, and unified nation.</p>
+                        <div class="prose max-w-none text-gray-700 space-y-6">
+                            <h2 class="font-heading text-3xl nigeria-green">A Rich and Storied History</h2>
+                            <p>Nigeria's history is one of ancient kingdoms, rich traditions, and a dynamic journey to nationhood. Archaeological evidence suggests that human habitation in the area dates back to at least 9000 BC. The Nok civilization, which flourished between 1500 BC and 500 AD, is one of the earliest known iron-smelting cultures in sub-Saharan Africa, famous for its distinctive terracotta sculptures.</p>
+                            <p>Over the centuries, powerful kingdoms and empires rose and fell, including the Kingdom of Nri, the Oyo Empire, the Benin Empire, and the Hausa city-states. These kingdoms were centers of sophisticated art, culture, and extensive trade networks. The arrival of European traders in the 15th century marked a new era, leading to the colonial period under British rule from the late 19th century until Nigeria achieved independence on October 1, 1960.</p>
                             
-                            <h2 class="text-3xl font-bold font-heading text-gray-800 mt-12">The People: A Mosaic of Cultures</h2>
-                            <p>Nigeria is the most populous country in Africa, with over 200 million people from more than 250 distinct ethnic groups, each with its unique language, culture, and traditions. The three largest and most dominant ethnic groups are the Hausa-Fulani in the north, the Yoruba in the southwest, and the Igbo in the southeast.</p>
-                             <p>This incredible diversity is the heart of Nigeria's strength and vibrancy. It is reflected in the country's art, music, literature, fashion, and cuisine, creating a rich cultural tapestry that is celebrated worldwide. Nigerians are known for their resilience, entrepreneurial spirit, and warm hospitality. Despite their diverse origins, the people are united by a shared national identity and a collective aspiration for a prosperous future.</p>
+                            <h2 class="font-heading text-3xl nigeria-green">The People: A Mosaic of Cultures</h2>
+                            <p>Nigeria is often called the "Giant of Africa," not just for its large population but also for the incredible diversity of its people. With over 200 million inhabitants, it is the most populous country in Africa and the seventh most populous in the world.</p>
+                            <p>This vibrant population is composed of more than 250 ethnic groups, each with its own unique language, customs, and traditions. The three largest ethnic groups are the Hausa-Fulani in the north, the Yoruba in the southwest, and the Igbo in the southeast. Other significant groups include the Ijaw, Kanuri, Ibibio, and Tiv, among many others.</p>
+                            <p>This cultural mosaic is one of Nigeria's greatest strengths, creating a nation with a rich tapestry of music, art, literature, and cuisine. English is the official language, facilitating communication and unity among the diverse ethnic groups.</p>
                         </div>
                     </div>
                 </div>
@@ -155,16 +178,18 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div><h4 class="font-bold text-xl mb-4 font-heading">About the Embassy</h4><p class="text-sm">The Embassy of the Federal Republic of Nigeria in Prague is the official diplomatic representation of Nigeria in the Czech Republic.</p></div>
-                <div><h4 class="font-bold text-xl mb-4 font-heading">Quick Links</h4><ul class="text-sm space-y-2"><li class="hover:underline"><a href="visas.html">Visa Services</a></li><li class="hover:underline"><a href="etc.html">Emergency Travel</a></li><li class="hover:underline"><a href="news.html">Latest News</a></li></ul></div>
+                <div><h4 class="font-bold text-xl mb-4 font-heading">Contact Information</h4><ul class="text-sm space-y-2"><li class="flex items-start"><i class="fas fa-map-marker-alt w-4 mr-3 mt-1"></i><span>Na Čihadle 32, 160 00 Praha 6, Czech Republic</span></li><li class="flex items-center"><i class="fas fa-phone-alt w-4 mr-3"></i><span>+420 220 561 040</span></li><li class="flex items-center"><i class="fas fa-envelope w-4 mr-3"></i><span>info@nigerianembassy.cz</span></li></ul></div>
                 <div>
-                    <h4 class="font-bold text-xl mb-4 font-heading">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://x.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-twitter text-2xl"></i></a>
-                        <a href="https://facebook.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-facebook-f text-2xl"></i></a>
-                        <a href="https://instagram.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-instagram text-2xl"></i></a>
-                    </div>
+                    <h4 class="font-bold text-xl mb-4 font-heading">Consular Hours</h4>
+                    <ul class="text-sm space-y-2">
+                        <li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li>
+                        <li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li>
+                    </ul>
                 </div>
-                <div><h4 class="font-bold text-xl mb-4 font-heading">Consular Hours</h4><ul class="text-sm space-y-2"><li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li><li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li></ul></div>
+                <div>
+                    <h4 class="font-bold text-xl mb-4 font-heading">Our Location</h4>
+                    <iframe src="https://maps.google.com/maps?q=Na%20%C4%8Cihadle%2032,%20160%2000%20Praha%206&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+                </div>
             </div>
             <div class="border-t border-gray-100 opacity-50 mt-10 pt-6 text-center text-sm"><p>&copy; 2025 Embassy of Nigeria, Prague. All Rights Reserved.</p></div>
         </div>
@@ -172,7 +197,18 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Desktop dropdowns and mobile menu logic
+            // JS for menus and translation
+             function updateTime() {
+                const timeEl = document.getElementById('prague-time');
+                if (timeEl) {
+                    const now = new Date();
+                    const options = { timeZone: 'Europe/Prague', weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                    timeEl.textContent = now.toLocaleString('en-US', options);
+                }
+            }
+            updateTime();
+            setInterval(updateTime, 1000 * 60);
+
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function(event) {
@@ -185,11 +221,11 @@
             window.addEventListener('click', () => document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none'));
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const navHtml = document.querySelector('.hidden.lg\\:flex').innerHTML;
+            const navContainer = document.querySelector('.hidden.lg\\:flex');
             mobileMenuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
                 if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.innerHTML = navHtml;
+                    mobileMenu.innerHTML = navContainer.innerHTML;
                     mobileMenu.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                         toggle.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -199,7 +235,6 @@
                     });
                 }
             });
-            // Translate button logic
             const translateLink = document.getElementById('translate-link');
             if(translateLink) {
                 const currentPageUrl = window.location.href;
