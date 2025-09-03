@@ -14,6 +14,9 @@
         .font-heading { font-family: 'Playfair Display', serif; }
         .nigeria-green { color: #008751; }
         .nigeria-green-bg { background-color: #008751; }
+        header {
+            border-bottom: 4px solid #008751;
+        }
         .dropdown .dropdown-content { display: none; }
         .dropdown-content { position: absolute; background-color: white; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 0.5rem; padding: 0.5rem 0; border-top: 3px solid #008751; }
         .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
@@ -53,11 +56,6 @@
             height: 24px;
             margin-right: 8px;
         }
-        .tab-button.active {
-            border-color: #008751;
-            color: #008751;
-            background-color: #f0fff4;
-        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -71,53 +69,72 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-10">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3">
-                <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
-                <div>
-                    <h1 class="text-lg font-bold nigeria-green font-heading">Embassy of Nigeria</h1>
-                    <p class="text-xs text-gray-600">Prague, Czech Republic</p>
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="images/logo.png" alt="Nigerian Coat of Arms" class="h-12 w-12">
+                    <div>
+                        <h1 class="text-lg font-bold nigeria-green font-heading">Embassy of Nigeria</h1>
+                        <p class="text-xs text-gray-600">Prague, Czech Republic</p>
+                    </div>
+                </a>
+                <div class="hidden xl:flex items-center text-sm text-gray-500 ml-8 pl-8 border-l border-gray-200">
+                    <i class="fas fa-clock mr-2 nigeria-green"></i>
+                    <span id="prague-time"></span>
                 </div>
-            </a>
-            <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
-                <a href="index.html" class="text-gray-600 hover:nigeria-green">Home</a>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="ambassador.html">Ambassador's Welcome</a>
-                        <a href="mission-history.html">History of the Mission</a>
-                        <a href="our-team.html">Our Team</a>
+            </div>
+            <div class="hidden lg:flex items-center">
+                <div class="flex items-center space-x-6 text-sm font-semibold">
+                    <a href="index.html" class="text-gray-600 hover:nigeria-green">Home</a>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="ambassador.html">Ambassador's Welcome</a>
+                            <a href="mission-history.html">History of the Mission</a>
+                            <a href="our-team.html">Our Team</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Nigeria <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="nigeria-history.html">History & People</a>
+                            <a href="nigeria-culture.html">Culture & Tourism</a>
+                            <a href="nigeria-economy.html">Economy & Investment</a>
+                            <a href="nigeria-symbols.html">National Symbols</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle nigeria-green inline-flex items-center">Services <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="visas.html">Visa Services</a>
+                            <a href="etc.html">Emergency Travel Certificate</a>
+                            <hr class="my-1">
+                            <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
+                            <a href="age-declaration.html">Age Declaration</a>
+                            <a href="citizens-identification.html">Citizens Identification</a>
+                            <a href="change-of-profession.html">Change of Profession</a>
+                            <a href="burial-permit.html">Burial Transit Permit</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative">
+                        <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
+                        <div class="dropdown-content">
+                            <a href="news.html">Latest News</a>
+                            <a href="gallery.html">Photo Gallery</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-gray-600 hover:nigeria-green">Contact Us</a>
+                </div>
+                <div class="flex items-center ml-6 pl-6 border-l border-gray-200">
+                    <div class="hidden xl:flex items-center text-sm text-gray-600 mr-6">
+                        <i class="fas fa-phone-alt mr-2 nigeria-green"></i>
+                        <span>+420 220 561 040</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://x.com/NigeriaInPrague" class="text-gray-500 hover:nigeria-green transition-colors" title="Follow us on X"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                        <a href="https://facebook.com/NigeriaInPrague" class="text-gray-500 hover:nigeria-green transition-colors" title="Follow us on Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="https://instagram.com/NigeriaInPrague" class="text-gray-500 hover:nigeria-green transition-colors" title="Follow us on Instagram"><i class="fab fa-instagram text-xl"></i></a>
                     </div>
                 </div>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Nigeria <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="nigeria-history.html">History & People</a>
-                        <a href="nigeria-culture.html">Culture & Tourism</a>
-                        <a href="nigeria-economy.html">Economy & Investment</a>
-                        <a href="nigeria-symbols.html">National Symbols</a>
-                    </div>
-                </div>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle nigeria-green inline-flex items-center">Services <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="visas.html">Visa Services</a>
-                        <a href="etc.html">Emergency Travel Certificate</a>
-                        <hr class="my-1">
-                        <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
-                        <a href="age-declaration.html">Age Declaration</a>
-                        <a href="citizens-identification.html">Citizens Identification</a>
-                        <a href="change-of-profession.html">Change of Profession</a>
-                        <a href="burial-permit.html">Burial Transit Permit</a>
-                    </div>
-                </div>
-                <div class="dropdown relative">
-                    <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">Press Center <i class="fas fa-chevron-down text-xs ml-2"></i></button>
-                    <div class="dropdown-content">
-                        <a href="news.html">Latest News</a>
-                        <a href="gallery.html">Photo Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="text-gray-600 hover:nigeria-green">Contact Us</a>
             </div>
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
@@ -140,56 +157,28 @@
             <section class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-3d-effect">
-                        <div class="prose max-w-none text-gray-700 space-y-4">
-                            <h2 class="text-3xl font-bold font-heading text-gray-800">General Information</h2>
-                            <p>The Embassy of the Federal Republic of Nigeria in Prague provides visa services to citizens of the Czech Republic and other nationals residing in the country who wish to travel to Nigeria. Please note that all visa applications are now processed online through the Nigeria Immigration Service (NIS) website. Applicants must complete the online application form, make the payment, and then book an appointment to submit their documents at the Embassy.</p>
+                        <div class="prose max-w-none text-gray-700 space-y-6">
+                            <p>The Embassy of Nigeria in Prague provides visa services for foreign nationals who wish to travel to Nigeria. All visa applications and payments are processed through the Nigeria Immigration Service (NIS) website. Applicants must complete the online application form, make the necessary payment, and then book an appointment to submit their documents at the Embassy.</p>
                             
-                            <!-- Tabs for Visa Types -->
-                            <div x-data="{ tab: 'tourist' }" class="mt-8">
-                                <div class="border-b border-gray-200 mb-6">
-                                    <nav class="-mb-px flex space-x-6" aria-label="Tabs">
-                                        <button @click="tab = 'tourist'" :class="{ 'active': tab === 'tourist' }" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Tourist Visa</button>
-                                        <button @click="tab = 'business'" :class="{ 'active': tab === 'business' }" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Business Visa</button>
-                                        <button @click="tab = 'official'" :class="{ 'active': tab === 'official' }" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Official/Diplomatic Visa</button>
-                                    </nav>
-                                </div>
-
-                                <div x-show="tab === 'tourist'">
-                                    <h3 class="text-2xl font-bold font-heading text-gray-800 mb-4">Tourist Visa Requirements</h3>
-                                    <ul class="list-disc list-inside space-y-2">
-                                        <li>Completed online application form from the NIS portal.</li>
-                                        <li>Proof of online payment.</li>
-                                        <li>Passport valid for at least six months with at least two blank pages.</li>
-                                        <li>Two recent passport-sized photographs.</li>
-                                        <li>Letter of invitation from a host in Nigeria, accepting full immigration responsibility. A copy of the host's Nigerian passport is also required.</li>
-                                        <li>Flight itinerary and proof of hotel reservation.</li>
-                                        <li>Evidence of sufficient funds (e.g., recent bank statements).</li>
-                                    </ul>
-                                </div>
-                                <div x-show="tab === 'business'">
-                                    <h3 class="text-2xl font-bold font-heading text-gray-800 mb-4">Business Visa Requirements</h3>
-                                    <ul class="list-disc list-inside space-y-2">
-                                         <li>Completed online application form from the NIS portal.</li>
-                                        <li>Proof of online payment.</li>
-                                        <li>Passport valid for at least six months with at least two blank pages.</li>
-                                        <li>Two recent passport-sized photographs.</li>
-                                        <li>Letter of invitation from a host company in Nigeria on their letterhead, accepting full immigration and financial responsibility.</li>
-                                        <li>Certificate of incorporation of the inviting Nigerian company.</li>
-                                        <li>A letter from the applicant's own company or employer in the Czech Republic.</li>
-                                        <li>Flight itinerary and proof of hotel reservation.</li>
-                                    </ul>
-                                </div>
-                                <div x-show="tab === 'official'">
-                                    <h3 class="text-2xl font-bold font-heading text-gray-800 mb-4">Official/Diplomatic Visa Requirements</h3>
-                                    <p>Official and Diplomatic visas are granted to officials of foreign governments and international organizations. This type of visa is typically gratis (free of charge).</p>
-                                    <ul class="list-disc list-inside space-y-2 mt-4">
-                                        <li>Valid Diplomatic or Official passport.</li>
-                                        <li>Note Verbale from the Ministry of Foreign Affairs of the Czech Republic or the applicant's Embassy/Organization.</li>
-                                        <li>Completed online application form (selecting the Official/Diplomatic option).</li>
-                                        <li>Two recent passport-sized photographs.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <h2 class="font-heading text-2xl nigeria-green">General Visa Requirements</h2>
+                             <ul class="list-disc list-inside space-y-2">
+                                <li>Completed online visa application form from the NIS portal.</li>
+                                <li>Proof of online payment.</li>
+                                <li>Passport valid for at least six months with at least two blank visa pages.</li>
+                                <li>Two recent passport-sized photographs.</li>
+                                <li>Confirmed flight itinerary.</li>
+                                <li>Evidence of sufficient funds.</li>
+                            </ul>
+                            
+                            <h2 class="font-heading text-2xl nigeria-green">Types of Visas</h2>
+                            <p>Below are some of the common visa types. Additional documents may be required based on the purpose of your visit.</p>
+                             <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Tourist Visa:</strong> Requires a letter of invitation from a host in Nigeria or a confirmed hotel reservation.</li>
+                                <li><strong>Business Visa:</strong> Requires a letter of invitation from a host company in Nigeria, accepting immigration responsibility.</li>
+                                <li><strong>Temporary Work Permit (TWP):</strong> For experts invited by corporate bodies to provide specialized skilled services. Requires an approval letter from the Comptroller General of Immigration.</li>
+                                <li><strong>Official/Diplomatic Visa:</strong> For diplomats and officials. Requires a Note Verbale from their Ministry of Foreign Affairs or Diplomatic Mission.</li>
+                            </ul>
+                             <p class="font-semibold mt-6">Please visit the official <a href="https://immigration.gov.ng" target="_blank" class="text-blue-600 hover:underline">Nigeria Immigration Service website</a> to start your application process.</p>
                         </div>
                     </div>
                 </div>
@@ -202,25 +191,37 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div><h4 class="font-bold text-xl mb-4 font-heading">About the Embassy</h4><p class="text-sm">The Embassy of the Federal Republic of Nigeria in Prague is the official diplomatic representation of Nigeria in the Czech Republic.</p></div>
-                <div><h4 class="font-bold text-xl mb-4 font-heading">Quick Links</h4><ul class="text-sm space-y-2"><li class="hover:underline"><a href="visas.html">Visa Services</a></li><li class="hover:underline"><a href="etc.html">Emergency Travel</a></li><li class="hover:underline"><a href="news.html">Latest News</a></li></ul></div>
+                <div><h4 class="font-bold text-xl mb-4 font-heading">Contact Information</h4><ul class="text-sm space-y-2"><li class="flex items-start"><i class="fas fa-map-marker-alt w-4 mr-3 mt-1"></i><span>Na Čihadle 32, 160 00 Praha 6, Czech Republic</span></li><li class="flex items-center"><i class="fas fa-phone-alt w-4 mr-3"></i><span>+420 220 561 040</span></li><li class="flex items-center"><i class="fas fa-envelope w-4 mr-3"></i><span>info@nigerianembassy.cz</span></li></ul></div>
                 <div>
-                    <h4 class="font-bold text-xl mb-4 font-heading">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://x.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-twitter text-2xl"></i></a>
-                        <a href="https://facebook.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-facebook-f text-2xl"></i></a>
-                        <a href="https://instagram.com/NigeriaInPrague" class="text-white hover:opacity-80 transition-opacity"><i class="fab fa-instagram text-2xl"></i></a>
-                    </div>
+                    <h4 class="font-bold text-xl mb-4 font-heading">Consular Hours</h4>
+                    <ul class="text-sm space-y-2">
+                        <li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li>
+                        <li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li>
+                    </ul>
                 </div>
-                <div><h4 class="font-bold text-xl mb-4 font-heading">Consular Hours</h4><ul class="text-sm space-y-2"><li><span class="font-semibold">Monday - Friday:</span> 10:00 AM - 1:00 PM</li><li><span class="font-semibold">Weekends & Public Holidays:</span> Closed</li></ul></div>
+                <div>
+                    <h4 class="font-bold text-xl mb-4 font-heading">Our Location</h4>
+                    <iframe src="https://maps.google.com/maps?q=Na%20%C4%8Cihadle%2032,%20160%2000%20Praha%206&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+                </div>
             </div>
             <div class="border-t border-gray-100 opacity-50 mt-10 pt-6 text-center text-sm"><p>&copy; 2025 Embassy of Nigeria, Prague. All Rights Reserved.</p></div>
         </div>
     </footer>
     
-    <script src="//unpkg.com/alpinejs" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // JS for menus and translation
+            function updateTime() {
+                const timeEl = document.getElementById('prague-time');
+                if (timeEl) {
+                    const now = new Date();
+                    const options = { timeZone: 'Europe/Prague', weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                    timeEl.textContent = now.toLocaleString('en-US', options);
+                }
+            }
+            updateTime();
+            setInterval(updateTime, 1000 * 60);
+
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function(event) {
@@ -233,11 +234,11 @@
             window.addEventListener('click', () => document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none'));
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const navHtml = document.querySelector('.hidden.lg\\:flex').innerHTML;
+            const navContainer = document.querySelector('.hidden.lg\\:flex');
             mobileMenuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
                 if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.innerHTML = navHtml;
+                    mobileMenu.innerHTML = navContainer.innerHTML;
                     mobileMenu.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                         toggle.addEventListener('click', function(e) {
                             e.preventDefault();
