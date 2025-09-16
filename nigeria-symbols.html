@@ -31,40 +31,43 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
-        .translate-button {
+        .translate-buttons {
             position: fixed;
             top: 180px; 
             right: 20px;
             z-index: 1000;
+        }
+        .translate-buttons button {
             background-color: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 8px;
+            border-radius: 50%;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
             transition: transform 0.3s ease;
         }
-        .translate-button:hover {
-            transform: scale(1.05);
+        .translate-buttons button:hover {
+            transform: scale(1.1);
         }
-        .translate-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .translate-buttons img {
+            width: 28px;
+            height: 28px;
         }
+        /* Hide the default Google Translate bar */
+        .skiptranslate { display: none !important; }
+        body { top: 0 !important; }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Translate Button -->
-     <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
-        <span>Česky</span>
-    </a>
+    <!-- Translate Buttons -->
+     <div class="translate-buttons flex flex-col space-y-2">
+        <button onclick="translatePage('en')" title="Translate to English">
+            <img src="https://flagcdn.com/w40/gb.png" alt="English Flag">
+        </button>
+        <button onclick="translatePage('cs')" title="Translate to Czech">
+            <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
+        </button>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-20">
@@ -88,7 +91,7 @@
                     <div class="dropdown relative">
                         <button class="dropdown-toggle text-gray-600 hover:nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
                         <div class="dropdown-content">
-                            <a href="cda.html">Charge D' Affairs' Welcome</a>
+                            <a href="html.html">Charge D' Affairs' Welcome</a>
                             <a href="mission-history.html">History of the Mission</a>
                             <a href="our-team.html">Our Team</a>
                         </div>
@@ -158,45 +161,62 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h2 class="font-heading text-3xl nigeria-green mb-4">The National Flag</h2>
-                                <p class="text-gray-700">The Nigerian flag was designed in 1959 and first officially hoisted on October 1, 1960. The flag has three vertical bands of green, white, and green. The two green stripes represent Nigeria's natural wealth and rich agricultural land, while the white band in the middle represents peace and unity.</p>
-                            </div>
-                            <div class="card-lift-effect">
-                                <img src="images/nigerian-flag.png" alt="The National Flag of Nigeria" class="rounded-lg shadow-md w-full">
-                            </div>
-                        </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2">
+                             <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                                <div class="prose max-w-none text-gray-700 space-y-6">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                                        <div>
+                                            <h2 class="font-heading text-3xl nigeria-green mb-4">The National Flag</h2>
+                                            <p class="text-gray-700">The Nigerian flag was designed in 1959 and first officially hoisted on October 1, 1960. The flag has three vertical bands of green, white, and green. The two green stripes represent Nigeria's natural wealth and rich agricultural land, while the white band in the middle represents peace and unity.</p>
+                                        </div>
+                                        <div class="card-lift-effect">
+                                            <img src="images/nigerian-flag.png" alt="The National Flag of Nigeria" class="rounded-lg shadow-md w-full">
+                                        </div>
+                                    </div>
 
-                        <hr class="my-12">
+                                    <hr class="my-12">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                             <div class="card-lift-effect md:order-2">
-                                <img src="images/logo.png" alt="The Nigerian Coat of Arms" class="rounded-lg w-full max-w-sm mx-auto">
-                            </div>
-                            <div class="md:order-1">
-                                <h2 class="font-heading text-3xl nigeria-green mb-4">The Coat of Arms</h2>
-                                <p class="text-gray-700">The Nigerian Coat of Arms features a black shield with a wavy white pall, symbolizing the confluence of the Niger and Benue rivers. The black shield represents Nigeria's fertile soil. The two white horses supporting the shield represent dignity, and the eagle perched on top represents strength. The ground on which the shield stands is covered in coctus spectabilis, a common flower found throughout Nigeria. The national motto, "Unity and Faith, Peace and Progress," is displayed on a banner below.</p>
-                            </div>
-                        </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                                         <div class="card-lift-effect md:order-2">
+                                            <img src="images/logo.png" alt="The Nigerian Coat of Arms" class="rounded-lg w-full max-w-sm mx-auto">
+                                        </div>
+                                        <div class="md:order-1">
+                                            <h2 class="font-heading text-3xl nigeria-green mb-4">The Coat of Arms</h2>
+                                            <p class="text-gray-700">The Nigerian Coat of Arms features a black shield with a wavy white pall, symbolizing the confluence of the Niger and Benue rivers. The black shield represents Nigeria's fertile soil. The two white horses supporting the shield represent dignity, and the eagle perched on top represents strength. The ground on which the shield stands is covered in coctus spectabilis, a common flower found throughout Nigeria. The national motto, "Unity and Faith, Peace and Progress," is displayed on a banner below.</p>
+                                        </div>
+                                    </div>
 
-                         <hr class="my-12">
+                                     <hr class="my-12">
 
-                        <div>
-                            <h2 class="font-heading text-3xl nigeria-green mb-4 text-center">National Anthem & Pledge</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-                                <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-heading text-xl nigeria-green">The National Anthem</h3>
-                                    <p class="text-gray-700 mt-2 italic">"Arise, O Compatriots, Nigeria's call obey..."</p>
+                                    <div>
+                                        <h2 class="font-heading text-3xl nigeria-green mb-4 text-center">National Anthem & Pledge</h2>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                                            <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
+                                                <h3 class="font-heading text-xl nigeria-green">The National Anthem</h3>
+                                                <p class="text-gray-700 mt-2 italic">"Arise, O Compatriots, Nigeria's call obey..."</p>
+                                            </div>
+                                            <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
+                                                <h3 class="font-heading text-xl nigeria-green">The National Pledge</h3>
+                                                <p class="text-gray-700 mt-2 italic">"I pledge to Nigeria my country, to be faithful, loyal and honest..."</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-heading text-xl nigeria-green">The National Pledge</h3>
-                                    <p class="text-gray-700 mt-2 italic">"I pledge to Nigeria my country, to be faithful, loyal and honest..."</p>
-                                </div>
                             </div>
                         </div>
-
+                        <!-- Sidebar -->
+                        <aside class="lg:col-span-1">
+                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="font-heading text-xl font-bold mb-4 border-b pb-2">Useful Links</h3>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li><a href="visas.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-passport mr-2"></i>Apply for a Nigerian Visa</a></li>
+                                    <li><a href="etc.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Documents</a></li>
+                                    <li><a href="https://www.immigration.gov.ng/" target="_blank" class="hover:text-nigeria-green hover:underline"><i class="fas fa-link mr-2"></i>Nigeria Immigration Service</a></li>
+                                    <li><a href="news.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-calendar-alt mr-2"></i>Public Holidays Schedule</a></li>
+                                </ul>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
@@ -225,9 +245,27 @@
         </div>
     </footer>
     
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // Function to scroll to top on page load/refresh
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+
+        function translatePage(languageCode) {
+            const googleCombo = document.querySelector('.goog-te-combo');
+            if (googleCombo) {
+                googleCombo.value = languageCode;
+                googleCombo.dispatchEvent(new Event('change'));
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // JS for menus and translation
+            // JS for menus and live clock
             function updateTime() {
                 const timeEl = document.getElementById('prague-time');
                 if (timeEl) {
@@ -238,7 +276,7 @@
             }
             updateTime();
             setInterval(updateTime, 1000 * 60);
-            
+
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function(event) {
@@ -288,14 +326,6 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
-
-            const translateLink = document.getElementById('translate-link');
-            if(translateLink) {
-                const currentPageUrl = window.location.href;
-                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
-                translateLink.href = googleTranslateUrl;
-                translateLink.target = '_blank';
-            }
         });
     </script>
 </body>
