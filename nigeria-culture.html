@@ -31,40 +31,43 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
-        .translate-button {
+        .translate-buttons {
             position: fixed;
             top: 180px; 
             right: 20px;
             z-index: 1000;
+        }
+        .translate-buttons button {
             background-color: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 8px;
+            border-radius: 50%;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
             transition: transform 0.3s ease;
         }
-        .translate-button:hover {
-            transform: scale(1.05);
+        .translate-buttons button:hover {
+            transform: scale(1.1);
         }
-        .translate-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .translate-buttons img {
+            width: 28px;
+            height: 28px;
         }
+        /* Hide the default Google Translate bar */
+        .skiptranslate { display: none !important; }
+        body { top: 0 !important; }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Translate Button -->
-     <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
-        <span>Česky</span>
-    </a>
+    <!-- Translate Buttons -->
+     <div class="translate-buttons flex flex-col space-y-2">
+        <button onclick="translatePage('en')" title="Translate to English">
+            <img src="https://flagcdn.com/w40/gb.png" alt="English Flag">
+        </button>
+        <button onclick="translatePage('cs')" title="Translate to Czech">
+            <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
+        </button>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-20">
@@ -158,30 +161,46 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
-                        <div class="prose max-w-none text-gray-700 space-y-6">
-                            <h2 class="font-heading text-3xl nigeria-green">A Hub of Vibrant Culture</h2>
-                            <p>Nigeria's culture is a rich tapestry woven from the traditions of its more than 250 ethnic groups. This diversity is expressed through its world-renowned music, art, film, and literature.</p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li><strong>Music:</strong> Nigeria is the birthplace of several iconic music genres, including Afrobeat, pioneered by the legendary Fela Kuti, as well as Highlife, Jùjú, and the globally popular Afrobeats sound of today.</li>
-                                <li><strong>Nollywood:</strong> The Nigerian film industry, known as Nollywood, is the second-largest in the world by film output. It produces thousands of films annually that are enjoyed by audiences across Africa and the diaspora.</li>
-                                <li><strong>Art and Sculpture:</strong> From the ancient Nok terracotta to the exquisite Benin bronzes, Nigerian art is celebrated for its sophistication and historical significance. Contemporary Nigerian artists continue to gain international acclaim.</li>
-                                <li><strong>Cuisine:</strong> Nigerian food is known for its bold flavors and hearty dishes. Popular meals like Jollof Rice, Suya (spicy grilled meat), and Egusi Soup are a must-try for any visitor.</li>
-                            </ul>
+                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2">
+                             <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                                <div class="prose max-w-none text-gray-700 space-y-6">
+                                    <h2 class="font-heading text-3xl nigeria-green">A Hub of Vibrant Culture</h2>
+                                    <p>Nigeria's culture is a rich tapestry woven from the traditions of its more than 250 ethnic groups. This diversity is expressed through its world-renowned music, art, film, and literature.</p>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li><strong>Music:</strong> Nigeria is the birthplace of several iconic music genres, including Afrobeat, pioneered by the legendary Fela Kuti, as well as Highlife, Jùjú, and the globally popular Afrobeats sound of today.</li>
+                                        <li><strong>Nollywood:</strong> The Nigerian film industry, known as Nollywood, is the second-largest in the world by film output. It produces thousands of films annually that are enjoyed by audiences across Africa and the diaspora.</li>
+                                        <li><strong>Art and Sculpture:</strong> From the ancient Nok terracotta to the exquisite Benin bronzes, Nigerian art is celebrated for its sophistication and historical significance. Contemporary Nigerian artists continue to gain international acclaim.</li>
+                                        <li><strong>Cuisine:</strong> Nigerian food is known for its bold flavors and hearty dishes. Popular meals like Jollof Rice, Suya (spicy grilled meat), and Egusi Soup are a must-try for any visitor.</li>
+                                    </ul>
 
-                            <h2 class="font-heading text-3xl nigeria-green">Tourist Attractions</h2>
-                            <p>Nigeria offers a wide range of attractions for tourists, from stunning natural landscapes to bustling modern cities and historical sites.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                                <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-heading text-xl nigeria-green">Natural Wonders</h3>
-                                    <p>Visit the iconic Zuma Rock near Abuja, explore the breathtaking Erin-Ijesha Waterfalls, or relax on the pristine beaches of Lagos. The Yankari National Park offers a chance to see diverse wildlife, including elephants and baboons, in their natural habitat.</p>
-                                </div>
-                                <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-heading text-xl nigeria-green">Historical Sites</h3>
-                                    <p>Discover the ancient city walls of Kano, the sacred Osun-Osogbo Grove (a UNESCO World Heritage site), and the historical slave trade relics in Badagry. These sites offer a profound glimpse into Nigeria's rich and complex history.</p>
+                                    <h2 class="font-heading text-3xl nigeria-green">Tourist Attractions</h2>
+                                    <p>Nigeria offers a wide range of attractions for tourists, from stunning natural landscapes to bustling modern cities and historical sites.</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                                        <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
+                                            <h3 class="font-heading text-xl nigeria-green">Natural Wonders</h3>
+                                            <p>Visit the iconic Zuma Rock near Abuja, explore the breathtaking Erin-Ijesha Waterfalls, or relax on the pristine beaches of Lagos. The Yankari National Park offers a chance to see diverse wildlife, including elephants and baboons, in their natural habitat.</p>
+                                        </div>
+                                        <div class="card-lift-effect bg-gray-50 p-6 rounded-lg">
+                                            <h3 class="font-heading text-xl nigeria-green">Historical Sites</h3>
+                                            <p>Discover the ancient city walls of Kano, the sacred Osun-Osogbo Grove (a UNESCO World Heritage site), and the historical slave trade relics in Badagry. These sites offer a profound glimpse into Nigeria's rich and complex history.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                         <!-- Sidebar -->
+                        <aside class="lg:col-span-1">
+                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="font-heading text-xl font-bold mb-4 border-b pb-2">Useful Links</h3>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li><a href="visas.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-passport mr-2"></i>Apply for a Nigerian Visa</a></li>
+                                    <li><a href="etc.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Documents</a></li>
+                                    <li><a href="https://www.immigration.gov.ng/" target="_blank" class="hover:text-nigeria-green hover:underline"><i class="fas fa-link mr-2"></i>Nigeria Immigration Service</a></li>
+                                    <li><a href="news.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-calendar-alt mr-2"></i>Public Holidays Schedule</a></li>
+                                </ul>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
@@ -210,9 +229,27 @@
         </div>
     </footer>
     
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // Function to scroll to top on page load/refresh
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+
+        function translatePage(languageCode) {
+            const googleCombo = document.querySelector('.goog-te-combo');
+            if (googleCombo) {
+                googleCombo.value = languageCode;
+                googleCombo.dispatchEvent(new Event('change'));
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // JS for menus and translation
+            // JS for menus and live clock
             function updateTime() {
                 const timeEl = document.getElementById('prague-time');
                 if (timeEl) {
@@ -273,14 +310,6 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
-
-            const translateLink = document.getElementById('translate-link');
-            if(translateLink) {
-                const currentPageUrl = window.location.href;
-                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
-                translateLink.href = googleTranslateUrl;
-                translateLink.target = '_blank';
-            }
         });
     </script>
 </body>
