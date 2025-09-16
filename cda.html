@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charge D' Affairs' Welcome | Embassy of Nigeria, Prague</title>
+    <title>Charge D' Affair's Welcome | Embassy of Nigeria, Prague</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,40 +31,43 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
-        .translate-button {
+        .translate-buttons {
             position: fixed;
             top: 180px; 
             right: 20px;
             z-index: 1000;
+        }
+        .translate-buttons button {
             background-color: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 8px;
+            border-radius: 50%;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
             transition: transform 0.3s ease;
         }
-        .translate-button:hover {
-            transform: scale(1.05);
+        .translate-buttons button:hover {
+            transform: scale(1.1);
         }
-        .translate-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .translate-buttons img {
+            width: 28px;
+            height: 28px;
         }
+        /* Hide the default Google Translate bar */
+        .skiptranslate { display: none !important; }
+        body { top: 0 !important; }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Translate Button -->
-     <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
-        <span>Česky</span>
-    </a>
+    <!-- Translate Buttons -->
+     <div class="translate-buttons flex flex-col space-y-2">
+        <button onclick="translatePage('en')" title="Translate to English">
+            <img src="https://flagcdn.com/w40/gb.png" alt="English Flag">
+        </button>
+        <button onclick="translatePage('cs')" title="Translate to Czech">
+            <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
+        </button>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-20">
@@ -88,7 +91,7 @@
                     <div class="dropdown relative">
                         <button class="dropdown-toggle nigeria-green inline-flex items-center">About Us <i class="fas fa-chevron-down text-xs ml-2"></i></button>
                         <div class="dropdown-content">
-                            <a href="cda.html">Charge D' Affairs' Welcome</a>
+                            <a href="cda.html">Ambassador's Welcome</a>
                             <a href="mission-history.html">History of the Mission</a>
                             <a href="our-team.html">Our Team</a>
                         </div>
@@ -150,7 +153,7 @@
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/cda-background.png');"></div>
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="container mx-auto px-6 relative z-10">
-                <h1 class="text-4xl font-bold font-heading">Charge D' Affairs' Welcome</h1>
+                <h1 class="text-4xl font-bold font-heading">Charge D' Affair's Welcome</h1>
             </div>
         </section>
 
@@ -158,23 +161,46 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
-                        <div class="flex flex-wrap md:flex-nowrap items-start">
-                            <div class="w-full md:w-1/3 text-center mb-8 md:mb-0 md:pr-8">
-                                <img src="images/charge-daffairs.jpg" alt="Charge D' Affairs A.I Mrs. Sarah Bukar-Godwin" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]">
-                                <h3 class="font-heading text-2xl mt-4 font-bold nigeria-green">CDA A.I Mrs. Sarah Bukar-Godwin</h3>
-                                <p class="text-gray-600">Charge D' Affairs' A.I of the Federal Republic of Nigeria to the Czech Republic</p>
-                            </div>
-                            <div class="w-full md:w-2/3 prose max-w-none text-gray-700 space-y-4">
-                                <h2 class="font-heading text-3xl nigeria-green">A Warm Welcome</h2>
-                                <p>On behalf of His Excellency, Bola Ahmed Tinubu, GCFR, President of the Federal Republic of Nigeria, and the entire staff of the Embassy, it is my distinct honor to welcome you to the official website of the Embassy of Nigeria in Prague, Czech Republic.</p>
-                                <p>This website is designed to serve as a vital resource for Nigerian citizens, our Czech friends, and the international community. Here, you will find comprehensive information about our consular services, discover the rich cultural heritage and vast investment opportunities in Nigeria, and stay updated on the latest news and events related to our Mission.</p>
-                                <p>Our primary objective is to strengthen the excellent bilateral relations that exist between Nigeria and the Czech Republic. We are committed to fostering deeper ties in trade, investment, culture, and education, while diligently serving the needs of the Nigerian diaspora in this beautiful country.</p>
-                                <p>We strive to provide efficient and courteous consular services. Whether you are applying for a visa, seeking information on passport services, or require any other form of assistance, our dedicated team is here to help. This platform is part of our ongoing effort to make our services more accessible and user-friendly.</p>
-                                <p>I invite you to explore the website and discover the vibrant spirit of Nigeria. We value your feedback and suggestions on how we can improve our services and this digital platform. We look forward to engaging with you.</p>
-                                <p>Thank you for visiting.</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2">
+                            <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                                <div class="flex flex-wrap md:flex-nowrap items-start">
+                                    <div class="w-full md:w-1/3 text-center mb-8 md:mb-0 md:pr-8">
+                                        <img src="images/charge-daffairs.jpg" alt="Charge D' Affairs A.I. Mrs. Sarah Bukar-Godwin" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]">
+                                        <h3 class="font-heading text-2xl mt-4 font-bold nigeria-green">CDA A.I. Mrs. Sarah Bukar-Godwin</h3>
+                                        <p class="text-gray-600">Charge D' Affairs of the Federal Republic of Nigeria to the Czech Republic</p>
+                                    </div>
+                                    <div class="w-full md:w-2/3 prose max-w-none text-gray-700 space-y-4">
+                                        <h2 class="font-heading text-3xl nigeria-green">A Warm Welcome</h2>
+                                        <p>On behalf of His Excellency, Bola Ahmed Tinubu, GCFR, President of the Federal Republic of Nigeria, and the entire staff of the Embassy, it is my distinct honor to welcome you to the official website of the Embassy of Nigeria in Prague, Czech Republic.</p>
+                                        <p>This website is designed to serve as a vital resource for Nigerian citizens, our Czech friends, and the international community. Here, you will find comprehensive information about our consular services, discover the rich cultural heritage and vast investment opportunities in Nigeria, and stay updated on the latest news and events related to our Mission.</p>
+                                        <p>Our primary objective is to strengthen the excellent bilateral relations that exist between Nigeria and the Czech Republic. We are committed to fostering deeper ties in trade, investment, culture, and education, while diligently serving the needs of the Nigerian diaspora in this beautiful country.</p>
+                                        <p>We strive to provide efficient and courteous consular services. Whether you are applying for a visa, seeking information on passport services, or require any other form of assistance, our dedicated team is here to help. This platform is part of our ongoing effort to make our services more accessible and user-friendly.</p>
+                                        <p>I invite you to explore the website and discover the vibrant spirit of Nigeria. We value your feedback and suggestions on how we can improve our services and this digital platform. We look forward to engaging with you.</p>
+                                        <p>Thank you for visiting.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- Sidebar -->
+                        <aside class="lg:col-span-1">
+                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="font-heading text-xl font-bold mb-4 border-b pb-2">Search</h3>
+                                <div class="flex">
+                                    <input type="text" placeholder="Search this site..." class="w-full border-gray-300 rounded-l-md focus:ring-nigeria-green focus:border-nigeria-green">
+                                    <button class="nigeria-green-bg text-white px-4 rounded-r-md hover:opacity-90"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-lg mt-8">
+                                <h3 class="font-heading text-xl font-bold mb-4 border-b pb-2">Useful Links</h3>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li><a href="visas.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-passport mr-2"></i>Apply for a Nigerian Visa</a></li>
+                                    <li><a href="etc.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Documents</a></li>
+                                    <li><a href="https://www.immigration.gov.ng/" target="_blank" class="hover:text-nigeria-green hover:underline"><i class="fas fa-link mr-2"></i>Nigeria Immigration Service</a></li>
+                                    <li><a href="news.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-calendar-alt mr-2"></i>Public Holidays Schedule</a></li>
+                                </ul>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
@@ -203,9 +229,27 @@
         </div>
     </footer>
     
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // Function to scroll to top on page load/refresh
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+
+        function translatePage(languageCode) {
+            const googleCombo = document.querySelector('.goog-te-combo');
+            if (googleCombo) {
+                googleCombo.value = languageCode;
+                googleCombo.dispatchEvent(new Event('change'));
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // JS for menus and translation
+            // JS for menus and live clock
             function updateTime() {
                 const timeEl = document.getElementById('prague-time');
                 if (timeEl) {
@@ -266,15 +310,6 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
-
-            // Translate button logic
-            const translateLink = document.getElementById('translate-link');
-            if(translateLink) {
-                const currentPageUrl = window.location.href;
-                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
-                translateLink.href = googleTranslateUrl;
-                translateLink.target = '_blank';
-            }
         });
     </script>
 </body>
