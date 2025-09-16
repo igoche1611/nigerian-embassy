@@ -31,40 +31,43 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
-        .translate-button {
+        .translate-buttons {
             position: fixed;
             top: 180px; 
             right: 20px;
             z-index: 1000;
+        }
+        .translate-buttons button {
             background-color: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 8px;
+            border-radius: 50%;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
             transition: transform 0.3s ease;
         }
-        .translate-button:hover {
-            transform: scale(1.05);
+        .translate-buttons button:hover {
+            transform: scale(1.1);
         }
-        .translate-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .translate-buttons img {
+            width: 28px;
+            height: 28px;
         }
+        /* Hide the default Google Translate bar */
+        .skiptranslate { display: none !important; }
+        body { top: 0 !important; }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Translate Button -->
-     <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
-        <span>Česky</span>
-    </a>
+    <!-- Translate Buttons -->
+     <div class="translate-buttons flex flex-col space-y-2">
+        <button onclick="translatePage('en')" title="Translate to English">
+            <img src="https://flagcdn.com/w40/gb.png" alt="English Flag">
+        </button>
+        <button onclick="translatePage('cs')" title="Translate to Czech">
+            <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
+        </button>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-20">
@@ -158,7 +161,7 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
+                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg max-w-4xl mx-auto">
                         <div class="prose max-w-none text-gray-700 space-y-6">
                             <p>The Embassy of Nigeria in Prague provides visa services for foreign nationals who wish to travel to Nigeria. All visa applications and payments are processed through the Nigeria Immigration Service (NIS) website. Applicants must complete the online application form, make the necessary payment, and then book an appointment to submit their documents at the Embassy.</p>
                             
@@ -210,9 +213,27 @@
         </div>
     </footer>
     
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // Function to scroll to top on page load/refresh
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+
+        function translatePage(languageCode) {
+            const googleCombo = document.querySelector('.goog-te-combo');
+            if (googleCombo) {
+                googleCombo.value = languageCode;
+                googleCombo.dispatchEvent(new Event('change'));
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // JS for menus and translation
+            // JS for menus and live clock
             function updateTime() {
                 const timeEl = document.getElementById('prague-time');
                 if (timeEl) {
@@ -273,14 +294,6 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
-
-            const translateLink = document.getElementById('translate-link');
-            if(translateLink) {
-                const currentPageUrl = window.location.href;
-                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
-                translateLink.href = googleTranslateUrl;
-                translateLink.target = '_blank';
-            }
         });
     </script>
 </body>
