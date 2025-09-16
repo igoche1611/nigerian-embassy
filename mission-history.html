@@ -31,40 +31,43 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
-        .translate-button {
+        .translate-buttons {
             position: fixed;
             top: 180px; 
             right: 20px;
             z-index: 1000;
+        }
+        .translate-buttons button {
             background-color: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 8px;
+            border-radius: 50%;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
             transition: transform 0.3s ease;
         }
-        .translate-button:hover {
-            transform: scale(1.05);
+        .translate-buttons button:hover {
+            transform: scale(1.1);
         }
-        .translate-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .translate-buttons img {
+            width: 28px;
+            height: 28px;
         }
+        /* Hide the default Google Translate bar */
+        .skiptranslate { display: none !important; }
+        body { top: 0 !important; }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Translate Button -->
-     <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
-        <span>Česky</span>
-    </a>
+    <!-- Translate Buttons -->
+     <div class="translate-buttons flex flex-col space-y-2">
+        <button onclick="translatePage('en')" title="Translate to English">
+            <img src="https://flagcdn.com/w40/gb.png" alt="English Flag">
+        </button>
+        <button onclick="translatePage('cs')" title="Translate to Czech">
+            <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
+        </button>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-20">
@@ -158,20 +161,36 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
-                        <div class="prose max-w-none text-gray-700 space-y-6">
-                            <p>The diplomatic relations between the Federal Republic of Nigeria and the Czech Republic (formerly Czechoslovakia) were formally established shortly after Nigeria gained independence in 1960. The Embassy of Nigeria in Prague was opened to foster mutual understanding, cooperation, and friendship between the two nations.</p>
-                            
-                            <h2 class="font-heading text-2xl nigeria-green">Founding and Early Years</h2>
-                            <p>The Mission began its operations with a focus on establishing political and economic ties. During the early years, the relationship was centered on trade in commodities and light industrial goods. The Embassy played a crucial role in navigating the complexities of the Cold War era, maintaining a stance of non-alignment while building partnerships that were beneficial to Nigeria's development.</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2">
+                             <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                                <div class="prose max-w-none text-gray-700 space-y-6">
+                                    <p>The diplomatic relations between the Federal Republic of Nigeria and the Czech Republic (formerly Czechoslovakia) were formally established shortly after Nigeria gained independence in 1960. The Embassy of Nigeria in Prague was opened to foster mutual understanding, cooperation, and friendship between the two nations.</p>
+                                    
+                                    <h2 class="font-heading text-2xl nigeria-green">Founding and Early Years</h2>
+                                    <p>The Mission began its operations with a focus on establishing political and economic ties. During the early years, the relationship was centered on trade in commodities and light industrial goods. The Embassy played a crucial role in navigating the complexities of the Cold War era, maintaining a stance of non-alignment while building partnerships that were beneficial to Nigeria's development.</p>
 
-                            <h2 class="font-heading text-2xl nigeria-green">Strengthening Bilateral Ties</h2>
-                            <p>Following the democratic transition in both countries, the relationship entered a new, dynamic phase. The Embassy's mandate expanded to include the promotion of democratic values, human rights, and good governance. Key areas of cooperation have included education, with many Nigerian students pursuing higher education in Czech universities, particularly in medicine and engineering.</p>
-                            
-                            <h2 class="font-heading text-2xl nigeria-green">The Embassy Today</h2>
-                            <p>Today, the Embassy of Nigeria in Prague continues to serve as a vital link between the two countries. Our focus is on enhancing economic diplomacy by promoting trade and attracting foreign direct investment into Nigeria's growing economy. We also provide a wide range of consular services to the Nigerian community in the Czech Republic and those wishing to travel to Nigeria.</p>
-                            <p>The Mission remains committed to protecting the interests of Nigerian citizens, promoting Nigeria's rich cultural heritage, and strengthening the bonds of friendship and cooperation with the government and people of the Czech Republic for our mutual benefit.</p>
+                                    <h2 class="font-heading text-2xl nigeria-green">Strengthening Bilateral Ties</h2>
+                                    <p>Following the democratic transition in both countries, the relationship entered a new, dynamic phase. The Embassy's mandate expanded to include the promotion of democratic values, human rights, and good governance. Key areas of cooperation have included education, with many Nigerian students pursuing higher education in Czech universities, particularly in medicine and engineering.</p>
+                                    
+                                    <h2 class="font-heading text-2xl nigeria-green">The Embassy Today</h2>
+                                    <p>Today, the Embassy of Nigeria in Prague continues to serve as a vital link between the two countries. Our focus is on enhancing economic diplomacy by promoting trade and attracting foreign direct investment into Nigeria's growing economy. We also provide a wide range of consular services to the Nigerian community in the Czech Republic and those wishing to travel to Nigeria.</p>
+                                    <p>The Mission remains committed to protecting the interests of Nigerian citizens, promoting Nigeria's rich cultural heritage, and strengthening the bonds of friendship and cooperation with the government and people of the Czech Republic for our mutual benefit.</p>
+                                </div>
+                            </div>
                         </div>
+                         <!-- Sidebar -->
+                        <aside class="lg:col-span-1">
+                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="font-heading text-xl font-bold mb-4 border-b pb-2">Useful Links</h3>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li><a href="visas.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-passport mr-2"></i>Apply for a Nigerian Visa</a></li>
+                                    <li><a href="etc.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Documents</a></li>
+                                    <li><a href="https://www.immigration.gov.ng/" target="_blank" class="hover:text-nigeria-green hover:underline"><i class="fas fa-link mr-2"></i>Nigeria Immigration Service</a></li>
+                                    <li><a href="news.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-calendar-alt mr-2"></i>Public Holidays Schedule</a></li>
+                                </ul>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
@@ -200,9 +219,27 @@
         </div>
     </footer>
     
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // Function to scroll to top on page load/refresh
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+
+        function translatePage(languageCode) {
+            const googleCombo = document.querySelector('.goog-te-combo');
+            if (googleCombo) {
+                googleCombo.value = languageCode;
+                googleCombo.dispatchEvent(new Event('change'));
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // JS for menus and translation
+            // JS for menus and live clock
             function updateTime() {
                 const timeEl = document.getElementById('prague-time');
                 if (timeEl) {
@@ -263,14 +300,6 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
-
-            const translateLink = document.getElementById('translate-link');
-            if(translateLink) {
-                const currentPageUrl = window.location.href;
-                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
-                translateLink.href = googleTranslateUrl;
-                translateLink.target = '_blank';
-            }
         });
     </script>
 </body>
