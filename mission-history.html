@@ -31,43 +31,40 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
         }
-        .translate-buttons {
+        .translate-button {
             position: fixed;
             top: 180px; 
             right: 20px;
             z-index: 1000;
-        }
-        .translate-buttons button {
             background-color: white;
-            padding: 8px;
-            border-radius: 50%;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 50px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
             transition: transform 0.3s ease;
         }
-        .translate-buttons button:hover {
-            transform: scale(1.1);
+        .translate-button:hover {
+            transform: scale(1.05);
         }
-        .translate-buttons img {
-            width: 28px;
-            height: 28px;
+        .translate-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
         }
-        /* Hide the default Google Translate bar */
-        .skiptranslate { display: none !important; }
-        body { top: 0 !important; }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Translate Buttons -->
-     <div class="translate-buttons flex flex-col space-y-2">
-        <button onclick="translatePage('en')" title="Translate to English">
-            <img src="https://flagcdn.com/w40/gb.png" alt="English Flag">
-        </button>
-        <button onclick="translatePage('cs')" title="Translate to Czech">
-            <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
-        </button>
-    </div>
-    <div id="google_translate_element" style="display:none;"></div>
+    <!-- Translate Button -->
+     <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
+        <img src="https://flagcdn.com/w40/cz.png" alt="Czech Flag">
+        <span>Česky</span>
+    </a>
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 w-full z-20">
@@ -219,23 +216,10 @@
         </div>
     </footer>
     
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
         // Function to scroll to top on page load/refresh
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
-        }
-
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
-        }
-
-        function translatePage(languageCode) {
-            const googleCombo = document.querySelector('.goog-te-combo');
-            if (googleCombo) {
-                googleCombo.value = languageCode;
-                googleCombo.dispatchEvent(new Event('change'));
-            }
         }
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -300,6 +284,15 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
+
+            // Translate button logic
+            const translateLink = document.getElementById('translate-link');
+            if(translateLink) {
+                const currentPageUrl = window.location.href;
+                const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
+                translateLink.href = googleTranslateUrl;
+                translateLink.target = '_blank';
+            }
         });
     </script>
 </body>
