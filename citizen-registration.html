@@ -198,8 +198,12 @@
                                     <textarea id="address" name="address" rows="3" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-nigeria-green focus:border-nigeria-green sm:text-sm form-input"></textarea>
                                 </div>
                                 <div>
-                                    <label for="passportNumber" class="block text-sm font-medium text-gray-700">Nigerian Passport Number</label>
-                                    <input type="text" id="passportNumber" name="passportNumber" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-nigeria-green focus:border-nigeria-green sm:text-sm form-input">
+                                    <label for="occupation" class="block text-sm font-medium text-gray-700">Occupation</label>
+                                    <input type="text" id="occupation" name="occupation" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-nigeria-green focus:border-nigeria-green sm:text-sm form-input">
+                                </div>
+                                <div>
+                                    <label for="stateOfOrigin" class="block text-sm font-medium text-gray-700">State of Origin</label>
+                                    <input type="text" id="stateOfOrigin" name="stateOfOrigin" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-nigeria-green focus:border-nigeria-green sm:text-sm form-input">
                                 </div>
                                 <div>
                                     <button type="submit" id="submit-button" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white nigeria-green-bg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nigeria-green">
@@ -253,14 +257,25 @@
         import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-        const firebaseConfig = typeof __firebase_config !== 'undefined'
-            ? JSON.parse(__firebase_config)
-            : { apiKey: "dummy-key", authDomain: "dummy.firebaseapp.com", projectId: "dummy-project" };
+        let app;
+        let db;
+        let auth;
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-        setLogLevel('debug');
+        if (typeof __firebase_config !== 'undefined') {
+            const firebaseConfig = JSON.parse(__firebase_config);
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            setLogLevel('debug');
+            setupAuth();
+        } else {
+            console.error("Firebase configuration is not available.");
+            const messageBox = document.getElementById('message-box');
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('bg-red-100', 'text-red-700');
+            messageBox.textContent = 'Registration service is currently unavailable. Please try again later.';
+            document.getElementById('submit-button').disabled = true;
+        }
 
         async function setupAuth() {
             try {
@@ -279,8 +294,7 @@
                 messageBox.textContent = 'Could not connect to the registration service. Please try again later.';
             }
         }
-        setupAuth();
-
+        
         const form = document.getElementById('registration-form');
         const messageBox = document.getElementById('message-box');
         const submitButton = document.getElementById('submit-button');
@@ -304,7 +318,8 @@
                 email: form.email.value,
                 phone: form.phone.value,
                 address: form.address.value,
-                passportNumber: form.passportNumber.value,
+                occupation: form.occupation.value,
+                stateOfOrigin: form.stateOfOrigin.value,
                 registrationDate: serverTimestamp()
             };
 
