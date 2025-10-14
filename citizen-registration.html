@@ -268,7 +268,6 @@
           measurementId: "G-5S8DPDFPLJ"
         };
         
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const auth = getAuth(app);
@@ -286,7 +285,11 @@
                     console.error("Anonymous sign-in failed:", error);
                     messageBox.classList.remove('hidden');
                     messageBox.classList.add('bg-red-100', 'text-red-700');
-                    messageBox.textContent = 'Could not connect to registration service.';
+                    if (error.code === 'auth/configuration-not-found') {
+                        messageBox.innerHTML = '<strong>Connection Failed:</strong> Please enable Authentication in your Firebase project. Go to your Firebase Console, click "Authentication" under the "Build" menu, click "Get started", and then enable the "Anonymous" sign-in provider.';
+                    } else {
+                        messageBox.textContent = 'Could not connect to registration service. Please try again.';
+                    }
                     submitButton.textContent = 'Connection Failed';
                 });
             }
