@@ -255,45 +255,27 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-        let app;
-        let db;
-        let auth;
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBSr-Mi1vRlmwDcJ-rXZG58KAo6S4aT1X8",
+          authDomain: "embassy-of-nigeria.firebaseapp.com",
+          projectId: "embassy-of-nigeria",
+          storageBucket: "embassy-of-nigeria.appspot.com",
+          messagingSenderId: "812096925471",
+          appId: "1:812096925471:web:5821b9a8a7b00f53bc0a2a",
+          measurementId: "G-5S8DPDFPLJ"
+        };
 
-        if (typeof __firebase_config !== 'undefined') {
-            const firebaseConfig = JSON.parse(__firebase_config);
-            app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-            setLogLevel('debug');
-            setupAuth();
-        } else {
-            console.error("Firebase configuration is not available.");
-            const messageBox = document.getElementById('message-box');
-            messageBox.classList.remove('hidden');
-            messageBox.classList.add('bg-red-100', 'text-red-700');
-            messageBox.textContent = 'Registration service is currently unavailable. Please try again later.';
-            document.getElementById('submit-button').disabled = true;
-        }
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
 
-        async function setupAuth() {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                    console.log("Signed in with custom token.");
-                } else {
-                    await signInAnonymously(auth);
-                    console.log("Signed in anonymously.");
-                }
-            } catch (error) {
-                console.error("Authentication failed:", error);
-                const messageBox = document.getElementById('message-box');
-                messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-700');
-                messageBox.classList.add('bg-red-100', 'text-red-700');
-                messageBox.textContent = 'Could not connect to the registration service. Please try again later.';
-            }
-        }
+        signInAnonymously(auth).catch((error) => {
+            console.error("Anonymous sign-in failed:", error);
+        });
         
         const form = document.getElementById('registration-form');
         const messageBox = document.getElementById('message-box');
