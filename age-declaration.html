@@ -22,7 +22,7 @@
         .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
         .dropdown-content a:hover { background-color: #f1f1f1; }
         .main-content-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-color: #f8f9fa;
         }
         .card-lift-effect {
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
@@ -56,9 +56,16 @@
             height: 24px;
             margin-right: 8px;
         }
+        /* Cookie Banner & Back to Top */
+        #cookie-banner {
+            transition: opacity 0.5s ease;
+        }
+        #back-to-top {
+            transition: opacity 0.3s, visibility 0.3s;
+        }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
 
     <!-- Translate Button -->
      <a href="#" id="translate-link" class="translate-button" title="Translate to Czech">
@@ -108,9 +115,12 @@
                             <a href="visas.html">Visa Services</a>
                             <a href="etc.html">Emergency Travel Certificate</a>
                             <hr class="my-1">
+                             <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Citizen Services</span>
+                            <a href="citizens-identification.html">Citizen Identification</a>
+                            <a href="citizen-registration.html">Citizen Registration</a>
+                            <hr class="my-1">
                             <span class="block px-4 pt-2 pb-1 text-xs text-gray-500 font-semibold uppercase">Document Legalization</span>
                             <a href="age-declaration.html">Age Declaration</a>
-                            <a href="citizens-identification.html">Citizens Identification</a>
                             <a href="change-of-profession.html">Change of Profession</a>
                             <a href="burial-permit.html">Burial Transit Permit</a>
                         </div>
@@ -158,24 +168,40 @@
         <div class="main-content-bg">
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg card-lift-effect">
-                        <div class="prose max-w-none text-gray-700 space-y-6">
-                            <p>An Age Declaration is a legal document used to certify a person's age when a birth certificate is unavailable or was never issued. This service is provided to Nigerian citizens who require official proof of their date of birth for various purposes.</p>
-                            
-                            <h2 class="font-heading text-2xl nigeria-green">Requirements for Age Declaration</h2>
-                            <p>Applicants must provide the following documents to the Consular Section:</p>
-                             <ul class="list-disc list-inside space-y-2">
-                                <li>A formal letter of application addressed to the Head of Mission.</li>
-                                <li>A completed application form.</li>
-                                <li>Original and photocopy of the applicant's Nigerian Passport.</li>
-                                <li>Two recent passport-sized photographs.</li>
-                                <li>A sworn affidavit from a Nigerian court of competent jurisdiction.</li>
-                                <li>Proof of payment of the applicable processing fee.</li>
-                            </ul>
-                            
-                            <h2 class="font-heading text-2xl nigeria-green">Important Information</h2>
-                            <p>The applicant must appear in person at the Embassy for the submission of documents. The Embassy will verify the provided documents and issue the Age Declaration certificate upon successful verification.</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2">
+                            <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                                <div class="prose max-w-none text-gray-700 space-y-6">
+                                    <p>An Age Declaration is a legal document used to certify a person's age when a birth certificate is unavailable or was never issued. This service is provided to Nigerian citizens who require official proof of their date of birth for various purposes.</p>
+                                    
+                                    <h2 class="font-heading text-2xl nigeria-green">Requirements for Age Declaration</h2>
+                                    <p>Applicants must provide the following documents to the Consular Section:</p>
+                                     <ul class="list-disc list-inside space-y-2">
+                                        <li>A formal letter of application addressed to the Head of Mission.</li>
+                                        <li>A completed application form.</li>
+                                        <li>Original and photocopy of the applicant's Nigerian Passport.</li>
+                                        <li>Two recent passport-sized photographs.</li>
+                                        <li>A sworn affidavit from a Nigerian court of competent jurisdiction.</li>
+                                        <li>Proof of payment of the applicable processing fee.</li>
+                                    </ul>
+                                    
+                                    <h2 class="font-heading text-2xl nigeria-green">Important Information</h2>
+                                    <p>The applicant must appear in person at the Embassy for the submission of documents. The Embassy will verify the provided documents and issue the Age Declaration certificate upon successful verification.</p>
+                                </div>
+                            </div>
                         </div>
+                        <!-- Sidebar -->
+                        <aside class="lg:col-span-1">
+                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="font-heading text-xl font-bold mb-4 border-b pb-2">Useful Links</h3>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li><a href="visas.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-passport mr-2"></i>Apply for a Nigerian Visa</a></li>
+                                    <li><a href="etc.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-plane-departure mr-2"></i>Emergency Travel Documents</a></li>
+                                    <li><a href="https://www.immigration.gov.ng/" target="_blank" class="hover:text-nigeria-green hover:underline"><i class="fas fa-link mr-2"></i>Nigeria Immigration Service</a></li>
+                                    <li><a href="news.html" class="hover:text-nigeria-green hover:underline"><i class="fas fa-calendar-alt mr-2"></i>Public Holidays Schedule</a></li>
+                                </ul>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
@@ -204,9 +230,25 @@
         </div>
     </footer>
     
+     <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 bg-nigeria-green text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-opacity duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 flex items-center justify-between shadow-lg opacity-0 -translate-y-full">
+        <p class="text-sm">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+        <button id="cookie-accept" class="bg-nigeria-green text-white py-2 px-4 rounded-lg hover:bg-green-700">Accept</button>
+    </div>
+
     <script>
+        // Function to scroll to top on page load/refresh
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // JS for menus and translation
+            // JS for menus and live clock
             function updateTime() {
                 const timeEl = document.getElementById('prague-time');
                 if (timeEl) {
@@ -267,13 +309,42 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
-
+            
+            // Translate button logic
             const translateLink = document.getElementById('translate-link');
             if(translateLink) {
                 const currentPageUrl = window.location.href;
                 const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=cs&u=${encodeURIComponent(currentPageUrl)}`;
                 translateLink.href = googleTranslateUrl;
                 translateLink.target = '_blank';
+            }
+
+            // Cookie Banner
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieAccept = document.getElementById('cookie-accept');
+            if (cookieBanner && cookieAccept) {
+                if (!localStorage.getItem('cookie_consent')) {
+                    cookieBanner.classList.remove('opacity-0', '-translate-y-full');
+                }
+                cookieAccept.addEventListener('click', function() {
+                    localStorage.setItem('cookie_consent', 'true');
+                    cookieBanner.style.display = 'none';
+                });
+            }
+
+            // Back to Top Button
+            const backToTopButton = document.getElementById('back-to-top');
+            if(backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                    } else {
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
             }
         });
     </script>
