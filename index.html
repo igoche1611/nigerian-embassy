@@ -10,16 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_TRACKING_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-YOUR_TRACKING_ID');
-    </script>
-    
     <style>
         body { 
             font-family: 'Lato', sans-serif; 
@@ -236,7 +226,7 @@
                  <div class="container mx-auto px-6">
                     <div class="bg-white p-12 rounded-lg shadow-lg card-lift-effect">
                         <div class="flex flex-wrap items-center">
-                            <div class="w-full md:w-1/3 text-center mb-8 md:mb-0"><img src="images/charge-daffairs.jpg" alt="Charge D'Affairs Photo" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]"></div>
+                            <div class="w-full md:w-1/3 text-center mb-8 md:mb-0"><img src="images/cda.jpg" alt="Charge D'Affairs Photo" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]"></div>
                             <div class="w-full md:w-2/3 md:pl-12">
                                 <h2 class="text-3xl md:text-4xl font-bold font-heading text-gray-800">A Message from the Charge D'Affairs</h2>
                                 <div class="w-20 h-1 bg-nigeria-green my-6"></div>
@@ -248,22 +238,22 @@
                 </div>
             </section>
 
-            <!-- President's Vision Section -->
+             <!-- Minister's Vision Section -->
             <section class="py-20 fade-in-section bg-white">
                  <div class="container mx-auto px-6">
                     <div class="bg-white p-12 rounded-lg">
                         <div class="flex flex-wrap items-center">
                             <div class="w-full md:w-2/3 md:pr-12">
-                                <h2 class="text-3xl md:text-4xl font-bold font-heading text-gray-800">The President's Vision</h2>
+                                <h2 class="text-3xl md:text-4xl font-bold font-heading text-gray-800">The Minister's "4D" Vision</h2>
                                 <div class="w-20 h-1 bg-nigeria-green my-6"></div>
-                                <blockquote>
-                                    <p class="text-2xl italic text-gray-600 leading-relaxed">"Renewed hope has dawned in Nigeria. I shall be a fair leader to all Nigerians. I will be in tune with your aspirations, charge up your energies and harness your talents to deliver a nation that we can be proud of."</p>
-                                </blockquote>
-                                <cite class="block mt-4 text-right font-semibold text-gray-800 not-italic">His Excellency, Bola Ahmed Tinubu, GCFR</cite>
-                                <cite class="block text-right text-gray-500 not-italic">President of the Federal Republic of Nigeria</cite>
+                                <div class="prose max-w-none text-gray-700 space-y-4">
+                                   <p>Our mission operates under the diplomatic vision set forth by the Honourable Minister of Foreign Affairs, Ambassador Yusuf Maitama Tuggar, which is centered on a "4D" foreign policy agenda: Democracy, Development, Demography, and Diaspora.</p>
+                                   <p>A central pillar of this vision is a renewed focus on you—the Nigerian Diaspora. We are committed to a citizen-centric approach to diplomacy, ensuring that this Embassy is a welcoming and effective resource for every bearer of the Nigerian green passport.</p>
+                                   <p>In the words of the Honourable Minister, we are "servants of the people." Our primary mandate is to serve you with dignity, respect, and a smile.</p>
+                                </div>
                             </div>
                              <div class="w-full md:w-1/3 text-center mt-8 md:mt-0">
-                                <img src="images/president-portrait.jpg" alt="President of Nigeria" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]">
+                                <img src="images/minister-portrait.png" alt="Honourable Minister of Foreign Affairs, Ambassador Yusuf Maitama Tuggar" class="rounded-lg shadow-xl mx-auto w-full max-w-xs object-cover aspect-[3/4]">
                             </div>
                         </div>
                     </div>
@@ -374,7 +364,7 @@
         </div>
     </footer>
     
-    <!-- Back to Top Button -->
+     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-5 right-5 bg-nigeria-green text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-opacity duration-300 opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -496,7 +486,7 @@
                 observer.observe(section);
             });
 
-            // Cookie Banner
+             // Cookie Banner
             const cookieBanner = document.getElementById('cookie-banner');
             const cookieAccept = document.getElementById('cookie-accept');
             if (cookieBanner && cookieAccept) {
